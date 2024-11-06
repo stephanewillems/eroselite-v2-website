@@ -1,5 +1,8 @@
 name: Lint
 
+on:
+  workflow_call:
+
 jobs:
   lint-node:
     runs-on: ubuntu-latest

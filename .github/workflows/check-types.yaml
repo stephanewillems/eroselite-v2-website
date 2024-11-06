@@ -1,5 +1,8 @@
 name: Check-types
 
+on:
+  workflow_call:
+
 jobs:
   check-types:
     runs-on: ubuntu-latest
