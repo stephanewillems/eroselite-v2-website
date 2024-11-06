@@ -1,0 +1,15 @@
+version: "3.8"
+
+services:
+  app:
+    container_name: eros-elite-node
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: on-failure
+    working_dir: /code
+    volumes:
+      - ./:/code
+    ports:
+      - "3000:3000"
+    command: yarn dev
