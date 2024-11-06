@@ -62,6 +62,13 @@ const config: Config = {
           "0 10px 15px -3px rgba(239, 120, 120, 1), 0 4px 6px -4px rgba(239, 120, 120, 1);",
         right: "8px 0 15px -3px rgba(0, 0, 0, 0.1)",
       },
+      // TODO: uncomment once we get assets
+      // backgroundImage: {
+      //   "eros-1": "url('/src/assets/images/eros-bg-1.jpg')",
+      //   "eros-2": "url('/src/assets/images/eros-bg-2.jpg')",
+      //   "eros-3": "url('/src/assets/images/eros-bg-3.jpg')",
+      //   purplePerson: "url('/src/assets/images/figurePurple.svg')",
+      // },
     },
   },
   plugins: [],
