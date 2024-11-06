@@ -1,8 +1,5 @@
 name: Lint
 
-on:
-  pull_request:
-
 jobs:
   lint-node:
     runs-on: ubuntu-latest
