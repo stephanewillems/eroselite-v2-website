@@ -13,5 +13,5 @@ jobs:
         with:
           node-version: 20
           cache: "yarn"
-      - name: lint
+      - name: Check Types
         run: yarn && yarn check-types
