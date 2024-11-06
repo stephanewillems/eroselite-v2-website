@@ -1,16 +1,18 @@
 import Image from "next/image";
 
-export default function Home() {
+const Home = () => {
   return (
     <div>
       <Image
-        className="dark:invert"
-        src="/next.svg"
         alt="Next.js logo"
-        width={180}
+        className="dark:invert"
         height={38}
         priority
+        src="/next.svg"
+        width={180}
       />
     </div>
   );
-}
+};
+
+export default Home;
