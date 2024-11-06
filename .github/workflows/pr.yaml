@@ -8,8 +8,8 @@ concurrency:
 
 jobs:
   lint:
-    uses: ./lint.yaml
+    uses: ./.github/workflows/lint.yaml
 
   check-types:
-    uses: ./check-types.yaml
+    uses: ./.github/workflows/check-types.yaml
 
