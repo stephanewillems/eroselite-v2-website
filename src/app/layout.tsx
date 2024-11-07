@@ -6,15 +6,40 @@ import Footer from "@/components/Footer";
 
 import "./globals.css";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
+const ceraPro = localFont({
+  src: [
+    {
+      path: "./fonts/CERAPRO-LIGHT.woff",
+      weight: "300",
+      style: "normal",
+    },
+    {
+      path: "./fonts/CERAPRO-LIGHTITALIC.woff",
+      weight: "300",
+      style: "italic",
+    },
+    {
+      path: "./fonts/CERAPRO-REGULAR.woff",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "./fonts/CERAPRO-REGULARITALIC.woff",
+      weight: "400",
+      style: "italic",
+    },
+    {
+      path: "./fonts/CERAPRO-MEDIUM.woff",
+      weight: "500",
+      style: "normal",
+    },
+    {
+      path: "./fonts/CERAPRO-MEDIUMITALIC.woff",
+      weight: "500",
+      style: "italic",
+    },
+  ],
+  variable: "--font-cera-pro",
 });
 
 export const metadata: Metadata = {
@@ -30,7 +55,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} flex flex-col min-h-screen antialiased`}
+        className={`${ceraPro.variable} font-cerapro flex flex-col min-h-screen antialiased`}
       >
         <Navbar />
         <main>{children}</main>
