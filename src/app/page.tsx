@@ -4,11 +4,11 @@ const Home = () => {
   return (
     <div>
       <Image
-        alt="Next.js logo"
+        alt="Eros Elite logo"
         className="dark:invert"
         height={38}
         priority
-        src="/next.svg"
+        src="/EE_LOGO_BIG.webp"
         width={180}
       />
     </div>
