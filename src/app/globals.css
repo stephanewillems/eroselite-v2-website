@@ -18,6 +18,7 @@
   --eros-yellow: #ffff00;
   --eros-bg: #0d0c0c;
   --radius: 0.5rem;
+  --border: #5e93e8;
 }
 
 @media (prefers-color-scheme: dark) {
