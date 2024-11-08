@@ -1,6 +1,8 @@
 import type { Config } from "tailwindcss";
+import tailwindCssAnimate from "tailwindcss-animate";
 
 const config: Config = {
+  darkMode: ["class"],
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -21,6 +23,34 @@ const config: Config = {
         "eros-red": "var(--eros-red)",
         "eros-yellow": "var(--eros-yellow)",
         "eros-bg": "var(--eros-bg)",
+        background: "hsl(var(--background))",
+        foreground: "hsl(var(--foreground))",
+        card: {
+          DEFAULT: "var(--eros-red)",
+          foreground: "var(--foreground)",
+        },
+        popover: {
+          DEFAULT: "var(--eros-black)",
+          foreground: "var(--foreground)",
+        },
+        primary: {
+          DEFAULT: "var(--eros-pink)",
+          dark: "var(--)",
+          foreground: "var(--foreground)",
+        },
+        success: {
+          DEFAULT: "var(--eros-green)",
+          foreground: "var(--foreground)",
+        },
+        destructive: {
+          DEFAULT: "var(--eros-red)",
+          foreground: "var(--foreground)",
+        },
+        outline: {
+          DEFAULT: "var(--eros-white)",
+          foreground: "var(--eros-pink)",
+        },
+        border: "var(--foreground)",
       },
       fontSize: {
         "4xl": ["2.986rem", "3.75rem"],
@@ -62,6 +92,11 @@ const config: Config = {
           "0 10px 15px -3px rgba(239, 120, 120, 1), 0 4px 6px -4px rgba(239, 120, 120, 1);",
         right: "8px 0 15px -3px rgba(0, 0, 0, 0.1)",
       },
+      borderRadius: {
+        lg: "var(--radius)",
+        md: "calc(var(--radius) - 2px)",
+        sm: "calc(var(--radius) - 4px)",
+      },
       // TODO: uncomment once we get assets
       // backgroundImage: {
       //   "eros-1": "url('/src/assets/images/eros-bg-1.jpg')",
@@ -71,6 +106,6 @@ const config: Config = {
       // },
     },
   },
-  plugins: [],
+  plugins: [tailwindCssAnimate],
 };
 export default config;

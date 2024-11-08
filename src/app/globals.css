@@ -3,6 +3,8 @@
 @tailwind utilities;
 
 :root {
+  --background: #0d0c0c;
+  --foreground: #ffffff;
   --eros-black: #171717;
   --eros-white: #f8f8f8;
   --eros-pink: #f078f0;
@@ -15,6 +17,7 @@
   --eros-red: #ef7878;
   --eros-yellow: #ffff00;
   --eros-bg: #0d0c0c;
+  --radius: 0.5rem;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -25,6 +28,6 @@
 
 body {
   color: var(--eros-black);
-  background: var(--eros-pink);
+  background: #e3e3e3;
   font-family: Arial, Helvetica, sans-serif;
 }
