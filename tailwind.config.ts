@@ -23,8 +23,8 @@ const config: Config = {
         "eros-red": "var(--eros-red)",
         "eros-yellow": "var(--eros-yellow)",
         "eros-bg": "var(--eros-bg)",
-        background: "hsl(var(--background))",
-        foreground: "hsl(var(--foreground))",
+        background: "var(--background)",
+        foreground: "var(--foreground)",
         card: {
           DEFAULT: "var(--eros-red)",
           foreground: "var(--foreground)",
