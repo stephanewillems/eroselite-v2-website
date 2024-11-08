@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 import {
   Select,
   SelectContent,
@@ -65,6 +66,14 @@ const Playground = () => {
           </SelectContent>
         </Select>
       </div>
+      ----------------------------------------------------------------------------------------------------------------------------------------------------------
+      <h1>Input</h1>
+      <div className="bg-eros-bg p-6 flex gap-4 my-4">
+        <Input placeholder="Email" size="sm" type="email" />
+        <Input placeholder="Email" type="email" />
+        <Input placeholder="Email" size="lg" type="email" />
+      </div>
+      ----------------------------------------------------------------------------------------------------------------------------------------------------------
     </div>
   );
 };
