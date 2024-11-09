@@ -13,6 +13,10 @@ import {
 } from "@/components/ui/select";
 import { PiIcon } from "lucide-react";
 
+import { TooltipWrap } from "@/components/ui/tooltip";
+
+const TooltipedButton = TooltipWrap(Button);
+
 // Playground page for displaying our components
 // Should be hidden for our users
 const Playground = () => {
@@ -82,16 +86,15 @@ const Playground = () => {
       </div>
       ----------------------------------------------------------------------------------------------------------------------------------------------------------
       <h1>Tooltip</h1>
-      <TooltipProvider>
-        <Tooltip>
-          <TooltipTrigger asChild>
-            <Button variant="outline">Hover</Button>
-          </TooltipTrigger>
-          <TooltipContent>
-            <p>Add to library</p>
-          </TooltipContent>
-        </Tooltip>
-      </TooltipProvider>
+      <TooltipedButton
+        tooltipProps={{
+          tooltip: "This is a tooltip",
+          side: "left",
+        }}
+        variant="destructive"
+      >
+        Hover over me
+      </TooltipedButton>
       ----------------------------------------------------------------------------------------------------------------------------------------------------------
     </div>
   );
