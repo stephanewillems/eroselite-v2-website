@@ -26,6 +26,8 @@ function TooltipWrap<E extends React.ElementType>(
       <TooltipPrimitive.TooltipProvider>
         <TooltipPrimitive.Tooltip>
           <TooltipPrimitive.TooltipTrigger asChild>
+            {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
+            {/* @ts-expect-error */}
             <ComposedComponent {...(props as React.ComponentProps<E>)}>
               {children}
             </ComposedComponent>
