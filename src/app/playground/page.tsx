@@ -87,9 +87,10 @@ const Playground = () => {
       ----------------------------------------------------------------------------------------------------------------------------------------------------------
       <h1>Tooltip</h1>
       <TooltipedButton
+        size="lg"
         tooltipProps={{
           tooltip: "This is a tooltip",
-          side: "left",
+          side: "top",
         }}
         variant="destructive"
       >

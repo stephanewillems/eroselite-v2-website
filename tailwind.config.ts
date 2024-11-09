@@ -33,6 +33,10 @@ const config: Config = {
           DEFAULT: "var(--eros-black)",
           foreground: "var(--foreground)",
         },
+        tooltip: {
+          DEFAULT: "var(--tooltip)",
+          foreground: "var(--foreground)",
+        },
         primary: {
           DEFAULT: "var(--eros-pink)",
           dark: "var(--)",
