@@ -62,46 +62,55 @@ const Navbar = () => {
       </nav>
 
       {/* Mobile */}
-      <div
-        className={`navbar-menu fixed top-0 left-0 bottom-0 z-50 w-5/6 max-w-sm py-6 px-6 bg-background border-primary border-r overflow-y-auto transition-all duration-500 ease-in-out transform ${
-          isOpen
-            ? "translate-x-0 opacity-100"
-            : "-translate-x-full opacity-0 delay-150"
-        }`}
-      >
-        <nav className="fixed top-0 left-0 bottom-0 flex flex-col w-5/6 max-w-sm py-6 px-6 w-full">
-          <div className="flex items-center mb-8">
-            <Link className="mr-auto text-3xl font-bold leading-none" href="/">
-              <Image
-                alt="Eros Elite Mobile logo"
-                className="dark:invert"
-                height={54}
-                priority
-                src="/EE_LOGO_SMALL.webp"
-                width={104}
-              />
-            </Link>
-            <button
-              className="text-foreground hover:text-primary"
-              onClick={() => setIsOpen(false)}
-              type="button"
-            >
-              <XIcon />
-            </button>
-          </div>
-          <ul>
-            {navigationLinks.map(({ label, href }) => (
-              <li key={label}>
-                <Link
-                  className="block text-base font-medium text-foreground py-2 px-4 rounded hover:text-primary"
-                  href={href}
-                >
-                  {label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </nav>
+      <div className="relative z-50">
+        {isOpen ? <div
+            className="fixed inset-0 bg-black bg-opacity-50"
+            onClick={() => setIsOpen(false)}
+          /> : null}
+        <div
+          className={`navbar-menu fixed top-0 left-0 bottom-0 z-50 w-5/6 max-w-sm py-6 px-6 bg-background border-primary border-r overflow-y-auto transition-all duration-500 ease-in-out transform ${
+            isOpen
+              ? "translate-x-0 opacity-100"
+              : "-translate-x-full opacity-0 delay-150"
+          }`}
+        >
+          <nav className="flex flex-col w-full h-full">
+            <div className="flex items-center mb-8">
+              <Link
+                className="mr-auto text-3xl font-bold leading-none"
+                href="/"
+              >
+                <Image
+                  alt="Eros Elite Mobile logo"
+                  className="dark:invert"
+                  height={54}
+                  priority
+                  src="/EE_LOGO_SMALL.webp"
+                  width={104}
+                />
+              </Link>
+              <button
+                className="text-foreground hover:text-primary"
+                onClick={() => setIsOpen(false)}
+                type="button"
+              >
+                <XIcon />
+              </button>
+            </div>
+            <ul>
+              {navigationLinks.map(({ label, href }) => (
+                <li key={label}>
+                  <Link
+                    className="block text-base font-medium text-foreground py-2 px-4 rounded hover:text-primary"
+                    href={href}
+                  >
+                    {label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        </div>
       </div>
     </div>
   );
