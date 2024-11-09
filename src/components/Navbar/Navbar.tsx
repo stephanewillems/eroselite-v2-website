@@ -45,28 +45,37 @@ const Navbar = () => {
             isOpen ? "block" : "hidden"
           } absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 lg:flex lg:mx-auto lg:flex lg:items-center lg:w-auto lg:space-x-8 max-lg:hidden`}
         >
-          {navigationLinks.map(({ label, href }) => (
+          {navigationLinks.map(({ label, href, icon: IconComponent }) => (
             <li className="min-w-fit" key={label}>
               <Link
                 className="text-base text-foreground hover:text-primary"
                 href={href}
               >
-                {label}
+                {IconComponent ? (
+                  <div className="flex items-center justify-center gap-1 text-primary">
+                    {IconComponent ? <IconComponent /> : null}
+                    {label}
+                  </div>
+                ) : (
+                  label
+                )}
               </Link>
             </li>
           ))}
         </ul>
-        <div className="cursor-pointer hidden lg:flex lg:ml-auto hover:text-primary">
+        <div className="cursor-pointer hidden lg:flex lg:ml-auto text-foreground hover:text-primary">
           <GlobeIcon />
         </div>
       </nav>
 
       {/* Mobile */}
       <div className="relative z-50">
-        {isOpen ? <div
+        {isOpen ? (
+          <div
             className="fixed inset-0 bg-black bg-opacity-50"
             onClick={() => setIsOpen(false)}
-          /> : null}
+          />
+        ) : null}
         <div
           className={`navbar-menu fixed top-0 left-0 bottom-0 z-50 w-5/6 max-w-sm py-6 px-6 bg-background border-primary border-r overflow-y-auto transition-all duration-500 ease-in-out transform ${
             isOpen
@@ -98,13 +107,20 @@ const Navbar = () => {
               </button>
             </div>
             <ul>
-              {navigationLinks.map(({ label, href }) => (
+              {navigationLinks.map(({ label, href, icon: IconComponent }) => (
                 <li key={label}>
                   <Link
                     className="block text-base font-medium text-foreground py-2 px-4 rounded hover:text-primary"
                     href={href}
                   >
-                    {label}
+                    {IconComponent ? (
+                      <div className="flex flex-row-reverse justify-end items-center gap-2 text-primary">
+                        {IconComponent ? <IconComponent /> : null}
+                        {label}
+                      </div>
+                    ) : (
+                      label
+                    )}
                   </Link>
                 </li>
               ))}
