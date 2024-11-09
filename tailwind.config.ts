@@ -23,14 +23,18 @@ const config: Config = {
         "eros-red": "var(--eros-red)",
         "eros-yellow": "var(--eros-yellow)",
         "eros-bg": "var(--eros-bg)",
-        background: "hsl(var(--background))",
-        foreground: "hsl(var(--foreground))",
+        background: "var(--background)",
+        foreground: "var(--foreground)",
         card: {
           DEFAULT: "var(--eros-red)",
           foreground: "var(--foreground)",
         },
         popover: {
           DEFAULT: "var(--eros-black)",
+          foreground: "var(--foreground)",
+        },
+        tooltip: {
+          DEFAULT: "var(--tooltip)",
           foreground: "var(--foreground)",
         },
         primary: {
@@ -50,7 +54,7 @@ const config: Config = {
           DEFAULT: "var(--eros-white)",
           foreground: "var(--eros-pink)",
         },
-        border: "var(--foreground)",
+        border: "var(--border)",
       },
       fontSize: {
         "4xl": ["2.986rem", "3.75rem"],
@@ -104,6 +108,28 @@ const config: Config = {
       //   "eros-3": "url('/src/assets/images/eros-bg-3.jpg')",
       //   purplePerson: "url('/src/assets/images/figurePurple.svg')",
       // },
+      keyframes: {
+        "accordion-down": {
+          from: {
+            height: "0",
+          },
+          to: {
+            height: "var(--radix-accordion-content-height)",
+          },
+        },
+        "accordion-up": {
+          from: {
+            height: "var(--radix-accordion-content-height)",
+          },
+          to: {
+            height: "0",
+          },
+        },
+      },
+      animation: {
+        "accordion-down": "accordion-down 0.2s ease-out",
+        "accordion-up": "accordion-up 0.2s ease-out",
+      },
     },
   },
   plugins: [tailwindCssAnimate],
