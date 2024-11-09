@@ -2,21 +2,13 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { TooltipWrap } from "@/components/ui/tooltip";
+import Select from "@/components/ui/select";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import {
-  Select,
-  SelectContent,
-  SelectGroup,
-  SelectItem,
-  SelectLabel,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
 
 import { PiIcon } from "lucide-react";
 
@@ -33,12 +25,14 @@ const Playground = () => {
           <PiIcon />
         </Button>
       </div>
+      ----------------------------------------------------------------------------------------------------------------------------------------------------------
       <h1>Button Sizes</h1>
       <div className="flex gap-4 my-4">
         <Button size="sm">Success</Button>
         <Button size="md">Destructive</Button>
         <Button size="lg">Outline</Button>
       </div>
+      ----------------------------------------------------------------------------------------------------------------------------------------------------------
       <h1>Button Variants</h1>
       <div className="flex gap-4 my-4">
         <Button size="md" variant="primary">
@@ -55,7 +49,32 @@ const Playground = () => {
         </Button>
       </div>
       ----------------------------------------------------------------------------------------------------------------------------------------------------------
-      <h1>Select</h1>
+      <h1>Select with groups</h1>
+      <div className="bg-eros-bg p-6 flex gap-4 my-4">
+        <Select
+          defaultValue="nl"
+          options={[
+            {
+              label: "Primary Languages",
+              items: [
+                { value: "nl", label: "Dutch" },
+                { value: "en", label: "English" },
+                { value: "de", label: "Deutsch" },
+              ],
+            },
+            {
+              label: "Secondary Languages",
+              items: [
+                { value: "al", label: "Albanian" },
+                { value: "pl", label: "Polish" },
+                { value: "br", label: "Brasilian" },
+              ],
+            },
+          ]}
+        />
+      </div>
+      ----------------------------------------------------------------------------------------------------------------------------------------------------------
+      <h1>Select without groups</h1>
       <div className="bg-eros-bg p-6 flex gap-4 my-4">
         <Select
           defaultValue="nl"
