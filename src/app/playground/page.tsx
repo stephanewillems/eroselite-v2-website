@@ -1,5 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+
 import {
   Select,
   SelectContent,
@@ -73,6 +75,23 @@ const Playground = () => {
         <Input placeholder="Email" type="email" />
         <Input placeholder="Email" size="lg" type="email" />
       </div>
+      ----------------------------------------------------------------------------------------------------------------------------------------------------------
+      <h1>Textarea</h1>
+      <div className="bg-eros-bg p-6 flex gap-4 my-4">
+        <Textarea placeholder="Description comes here." />
+      </div>
+      ----------------------------------------------------------------------------------------------------------------------------------------------------------
+      <h1>Tooltip</h1>
+      <TooltipProvider>
+        <Tooltip>
+          <TooltipTrigger asChild>
+            <Button variant="outline">Hover</Button>
+          </TooltipTrigger>
+          <TooltipContent>
+            <p>Add to library</p>
+          </TooltipContent>
+        </Tooltip>
+      </TooltipProvider>
       ----------------------------------------------------------------------------------------------------------------------------------------------------------
     </div>
   );
