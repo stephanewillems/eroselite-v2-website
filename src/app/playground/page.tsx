@@ -14,6 +14,12 @@ import {
 import { PiIcon } from "lucide-react";
 
 import { TooltipWrap } from "@/components/ui/tooltip";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+import { AccordionItem } from "@radix-ui/react-accordion";
 
 const TooltipedButton = TooltipWrap(Button);
 
@@ -96,6 +102,16 @@ const Playground = () => {
       >
         Hover over me
       </TooltipedButton>
+      ----------------------------------------------------------------------------------------------------------------------------------------------------------
+      <h1>Accordion</h1>
+      <Accordion collapsible type="single">
+        <AccordionItem value="item-1">
+          <AccordionTrigger>Is it accessible?</AccordionTrigger>
+          <AccordionContent>
+            Yes. It adheres to the WAI-ARIA design pattern.
+          </AccordionContent>
+        </AccordionItem>
+      </Accordion>
       ----------------------------------------------------------------------------------------------------------------------------------------------------------
     </div>
   );
