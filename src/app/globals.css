@@ -19,7 +19,7 @@
   --eros-bg: #0d0c0c;
   --radius: 0.5rem;
   --border: #5e93e8;
-  --tooltip: #7829C6;
+  --tooltip: #7829c6;
 }
 
 @media (prefers-color-scheme: dark) {
