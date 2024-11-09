@@ -28,8 +28,13 @@
   }
 }
 
-body {
-  color: var(--eros-black);
-  background: #e3e3e3;
+html,
+main {
+  color: var(--foreground);
+  background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  background: transparent;
 }
