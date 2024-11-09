@@ -57,25 +57,14 @@ const Playground = () => {
       ----------------------------------------------------------------------------------------------------------------------------------------------------------
       <h1>Select</h1>
       <div className="bg-eros-bg p-6 flex gap-4 my-4">
-        <Select>
-          <SelectTrigger className="w-[280px]">
-            <SelectValue placeholder="Select Language" />
-          </SelectTrigger>
-          <SelectContent>
-            <SelectGroup>
-              <SelectLabel>Primary Languages</SelectLabel>
-              <SelectItem value="nl">Dutch</SelectItem>
-              <SelectItem value="en">English</SelectItem>
-              <SelectItem value="de">Deutsch</SelectItem>
-            </SelectGroup>
-            <SelectGroup>
-              <SelectLabel>Secondary Languages</SelectLabel>
-              <SelectItem value="al">Albanian</SelectItem>
-              <SelectItem value="pl">Polish</SelectItem>
-              <SelectItem value="br">Brasilian</SelectItem>
-            </SelectGroup>
-          </SelectContent>
-        </Select>
+        <Select
+          defaultValue="nl"
+          options={[
+            { value: "nl", label: "Dutch" },
+            { value: "en", label: "English" },
+            { value: "de", label: "Deutsch" },
+          ]}
+        />
       </div>
       ----------------------------------------------------------------------------------------------------------------------------------------------------------
       <h1>Input</h1>
