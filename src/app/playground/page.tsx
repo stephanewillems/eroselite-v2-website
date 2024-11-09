@@ -3,12 +3,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { TooltipWrap } from "@/components/ui/tooltip";
 import Select from "@/components/ui/select";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
+import Accordion from "@/components/ui/accordion";
 
 import { PiIcon } from "lucide-react";
 
@@ -112,14 +107,22 @@ const Playground = () => {
       ----------------------------------------------------------------------------------------------------------------------------------------------------------
       <h1>Accordion</h1>
       <div className="w-[500px] flex justify-center">
-        <Accordion className="w-full" collapsible type="single">
-          <AccordionItem value="item-1">
-            <AccordionTrigger>Is it accessible?</AccordionTrigger>
-            <AccordionContent>
-              Yes. It adheres to the WAI-ARIA design pattern.
-            </AccordionContent>
-          </AccordionItem>
-        </Accordion>
+        <Accordion
+          collapsible
+          items={[
+            {
+              value: "item-1",
+              trigger: "Is it accessible?",
+              content: "Yes. It adheres to the WAI-ARIA design pattern.",
+            },
+            {
+              value: "item-2",
+              trigger: "Can I use it on mobile?",
+              content:
+                "Yes. The design is responsive and works well on mobile.",
+            },
+          ]}
+        />
       </div>
       ----------------------------------------------------------------------------------------------------------------------------------------------------------
     </div>
