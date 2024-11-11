@@ -16,7 +16,7 @@ const Navbar = () => {
     <div className="bg-background">
       <nav
         className={cn(
-          "relative px-4 py-6 flex justify-between items-center",
+          "relative pl-0 px-6 py-6 flex justify-between items-center",
           containerClass
         )}
       >
@@ -33,7 +33,7 @@ const Navbar = () => {
         </Link>
         <div className="lg:hidden">
           <button
-            className="navbar-burger flex items-center text-foreground p-3 hover:text-primary"
+            className="navbar-burger flex items-center text-foreground hover:text-primary"
             onClick={() => setIsOpen(!isOpen)}
             type="button"
           >
@@ -77,10 +77,10 @@ const Navbar = () => {
           />
         ) : null}
         <div
-          className={`navbar-menu fixed top-0 left-0 bottom-0 z-50 w-5/6 max-w-sm py-6 px-6 bg-background border-primary border-r overflow-y-auto transition-all duration-500 ease-in-out transform ${
+          className={`navbar-menu fixed top-0 right-0 bottom-0 z-50 w-full px-6 py-6 bg-background border-primary border-l overflow-y-auto transition-all duration-500 ease-in-out transform ${
             isOpen
               ? "translate-x-0 opacity-100"
-              : "-translate-x-full opacity-0 delay-150"
+              : "translate-x-full opacity-0 delay-150"
           }`}
         >
           <nav className="flex flex-col w-full h-full">
@@ -95,7 +95,7 @@ const Navbar = () => {
                   height={54}
                   priority
                   src="/EE_LOGO_SMALL.webp"
-                  width={104}
+                  width={140}
                 />
               </Link>
               <button
