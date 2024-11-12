@@ -7,8 +7,6 @@ import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { navigationLinks } from "./constants";
 
-const containerClass = "mx-auto my-0 lg:max-w-[1440px]";
-
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -17,7 +15,6 @@ const Navbar = () => {
       <nav
         className={cn(
           "relative pl-0 px-6 py-6 flex justify-between items-center",
-          containerClass
         )}
       >
         <Link href="/">

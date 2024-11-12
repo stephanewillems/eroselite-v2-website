@@ -55,7 +55,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${ceraPro.variable} font-cerapro flex flex-col min-h-screen antialiased`}
+        className={`${ceraPro.variable} lg:container font-cerapro flex flex-col min-h-screen antialiased`}
       >
         <Navbar />
         <main>{children}</main>
