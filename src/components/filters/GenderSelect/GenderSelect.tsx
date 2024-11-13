@@ -1,12 +1,11 @@
 import { BookHeartIcon } from "lucide-react";
 import React from "react";
 
-import Select from "@/components/ui/select";
-import {
+import Select, {
   GroupedOption,
   Option,
   SelectComponentProps,
-} from "@/components/ui/select/Select";
+} from "@/components/ui/select";
 
 const defaultOptions = [
   { label: "Male", value: "male" },
