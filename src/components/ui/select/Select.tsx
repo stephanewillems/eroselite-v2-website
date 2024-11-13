@@ -9,31 +9,46 @@ import {
 import { SelectGroup, SelectValue } from "./components";
 import { SelectProps } from "@radix-ui/react-select";
 
-type Option = {
+export interface Option {
   value: string;
   label: string;
-};
+}
 
-type GroupedOption = {
+export interface GroupedOption {
   label: string;
   items: Option[];
-};
+}
+
+export type SelectSize = "sm" | "md" | "lg";
 
 interface SelectComponentProps extends SelectProps {
   options: Option[] | GroupedOption[];
   placeholder?: string;
+  size?: Size;
 }
+
+const sizeClasses: Record<Size, string> = {
+  sm: "h-7 text-sm min-w-[100px]",
+  md: "h-9 text-sm min-w-[150px]",
+  lg: "h-11 text-sm min-w-[200px]",
+};
 
 const Select: React.FC<SelectComponentProps> = ({
   options,
   placeholder = "Select...",
+  size = "md",
   ...other
 }) => {
   const isGrouped = "items" in options[0];
 
   return (
     <SelectComponent {...other}>
-      <SelectTrigger className="w-[280px]">
+      <SelectTrigger
+        className={cn(
+          "!w-full",
+          sizeClasses[size]
+        )}
+      >
         <SelectValue placeholder={placeholder} />
       </SelectTrigger>
       <SelectContent>
