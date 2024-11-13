@@ -1,4 +1,4 @@
-import { LocateIcon } from "lucide-react";
+import { Map } from "lucide-react";
 import React from "react";
 
 import Select from "@/components/ui/select";
@@ -44,7 +44,7 @@ const LocationSelect = ({
         {...other}
         defaultValue={defaultValue}
         hideChevronIcon
-        icon={<LocateIcon height={15} width={15} />}
+        icon={<Map height={15} width={15} />}
         options={localOptions}
         placeholder="Place"
         value={value}
