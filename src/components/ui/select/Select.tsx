@@ -23,7 +23,7 @@ export interface GroupedOption {
 
 export type SelectSize = "sm" | "md" | "lg";
 
-interface SelectComponentProps extends SelectProps {
+export interface SelectComponentProps extends SelectProps {
   options: Option[] | GroupedOption[];
   placeholder?: string;
   icon?: React.ReactNode;
