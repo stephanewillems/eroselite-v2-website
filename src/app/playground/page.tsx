@@ -5,7 +5,7 @@ import { TooltipWrap } from "@/components/ui/tooltip";
 import Select from "@/components/ui/select";
 import Accordion from "@/components/ui/accordion";
 
-import { PiIcon, MapIcon } from "lucide-react";
+import { PiIcon, MapIcon, Map } from "lucide-react";
 
 const TooltipedButton = TooltipWrap(Button);
 
@@ -153,6 +153,13 @@ const Playground = () => {
         <Input placeholder="Email" size="sm" type="email" />
         <Input placeholder="Email" type="email" />
         <Input placeholder="Email" size="lg" type="email" />
+      </div>
+      ----------------------------------------------------------------------------------------------------------------------------------------------------------
+      <h1>Inputs with Icons</h1>
+      <div className="flex gap-4 my-4">
+        <Input icon={Map} placeholder="Distance" size="sm" />
+        <Input icon={Map} placeholder="Distance" size="md" />
+        <Input icon={Map} placeholder="Distance" size="lg" />
       </div>
       ----------------------------------------------------------------------------------------------------------------------------------------------------------
       <h1>Textarea</h1>
