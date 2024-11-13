@@ -5,9 +5,11 @@ import {
   SelectContent,
   SelectItem,
   SelectLabel,
+  SelectGroup,
+  SelectValue,
 } from "./components";
-import { SelectGroup, SelectValue } from "./components";
 import { SelectProps } from "@radix-ui/react-select";
+import { cn } from "@/lib/utils";
 
 export interface Option {
   value: string;
@@ -24,10 +26,12 @@ export type SelectSize = "sm" | "md" | "lg";
 interface SelectComponentProps extends SelectProps {
   options: Option[] | GroupedOption[];
   placeholder?: string;
-  size?: Size;
+  icon?: React.ReactNode;
+  hideChevronIcon?: boolean;
+  size?: SelectSize;
 }
 
-const sizeClasses: Record<Size, string> = {
+const sizeClasses: Record<SelectSize, string> = {
   sm: "h-7 text-sm min-w-[100px]",
   md: "h-9 text-sm min-w-[150px]",
   lg: "h-11 text-sm min-w-[200px]",
@@ -36,6 +40,8 @@ const sizeClasses: Record<Size, string> = {
 const Select: React.FC<SelectComponentProps> = ({
   options,
   placeholder = "Select...",
+  icon,
+  hideChevronIcon = false,
   size = "md",
   ...other
 }) => {
@@ -46,10 +52,20 @@ const Select: React.FC<SelectComponentProps> = ({
       <SelectTrigger
         className={cn(
           "!w-full",
+          {
+            "[&>svg]:hidden": hideChevronIcon,
+          },
           sizeClasses[size]
         )}
       >
-        <SelectValue placeholder={placeholder} />
+        {icon ? (
+          <div className="flex items-center">
+            <span className="mr-2 max-h-fit">{icon}</span>
+            <SelectValue placeholder={placeholder} />
+          </div>
+        ) : (
+          <SelectValue placeholder={placeholder} />
+        )}
       </SelectTrigger>
       <SelectContent>
         {isGrouped
