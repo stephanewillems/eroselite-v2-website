@@ -5,7 +5,7 @@ import { TooltipWrap } from "@/components/ui/tooltip";
 import Select from "@/components/ui/select";
 import Accordion from "@/components/ui/accordion";
 
-import { PiIcon } from "lucide-react";
+import { PiIcon, MapIcon } from "lucide-react";
 
 const TooltipedButton = TooltipWrap(Button);
 
@@ -44,10 +44,11 @@ const Playground = () => {
         </Button>
       </div>
       ----------------------------------------------------------------------------------------------------------------------------------------------------------
-      <h1>Select with groups</h1>
-      <div className="bg-eros-bg p-6 flex gap-4 my-4">
+      <h1>Select with groups and icons</h1>
+      <div className="bg-eros-bg p-6 flex gap-12 my-4">
         <Select
           defaultValue="nl"
+          icon={<MapIcon height={15} width={15} />}
           options={[
             {
               label: "Primary Languages",
@@ -66,11 +67,58 @@ const Playground = () => {
               ],
             },
           ]}
+          size="sm"
+        />
+        <Select
+          defaultValue="nl"
+          icon={<MapIcon height={15} width={15} />}
+          options={[
+            {
+              label: "Primary Languages",
+              items: [
+                { value: "nl", label: "Dutch" },
+                { value: "en", label: "English" },
+                { value: "de", label: "Deutsch" },
+              ],
+            },
+            {
+              label: "Secondary Languages",
+              items: [
+                { value: "al", label: "Albanian" },
+                { value: "pl", label: "Polish" },
+                { value: "br", label: "Brasilian" },
+              ],
+            },
+          ]}
+          size="md"
+        />
+        <Select
+          defaultValue="nl"
+          icon={<MapIcon height={15} width={15} />}
+          options={[
+            {
+              label: "Primary Languages",
+              items: [
+                { value: "nl", label: "Dutch" },
+                { value: "en", label: "English" },
+                { value: "de", label: "Deutsch" },
+              ],
+            },
+            {
+              label: "Secondary Languages",
+              items: [
+                { value: "al", label: "Albanian" },
+                { value: "pl", label: "Polish" },
+                { value: "br", label: "Brasilian" },
+              ],
+            },
+          ]}
+          size="lg"
         />
       </div>
       ----------------------------------------------------------------------------------------------------------------------------------------------------------
       <h1>Select without groups</h1>
-      <div className="bg-eros-bg p-6 flex gap-4 my-4">
+      <div className="bg-eros-bg p-6 flex gap-12 my-4">
         <Select
           defaultValue="nl"
           options={[
@@ -78,6 +126,25 @@ const Playground = () => {
             { value: "en", label: "English" },
             { value: "de", label: "Deutsch" },
           ]}
+          size="sm"
+        />
+        <Select
+          defaultValue="nl"
+          options={[
+            { value: "nl", label: "Dutch" },
+            { value: "en", label: "English" },
+            { value: "de", label: "Deutsch" },
+          ]}
+          size="md"
+        />
+        <Select
+          defaultValue="nl"
+          options={[
+            { value: "nl", label: "Dutch" },
+            { value: "en", label: "English" },
+            { value: "de", label: "Deutsch" },
+          ]}
+          size="lg"
         />
       </div>
       ----------------------------------------------------------------------------------------------------------------------------------------------------------
