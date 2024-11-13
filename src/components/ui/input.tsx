@@ -49,7 +49,7 @@ const Input = React.forwardRef<HTMLInputElement, CustomInputProps>(
       <div className="relative h-full w-full max-w-sm items-center">
         <input
           className={cn(
-            "flex w-full rounded-md border border-input bg-transparent px-3 py-1 text-foreground shadow-sm transition-colors file:border-0 file:bg-transparent file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50",
+            "flex w-full rounded-md border border-input bg-transparent px-3 py-1 text-foreground shadow-sm transition-colors file:border-0 file:bg-transparent file:font-medium file:text-foreground placeholder:text-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50",
             inputSizeClass,
             className
           )}
@@ -59,9 +59,7 @@ const Input = React.forwardRef<HTMLInputElement, CustomInputProps>(
         />
         {IconComponent ? (
           <span className="absolute start-0 inset-y-0 flex items-center justify-center px-2">
-            <IconComponent
-              className={cn(iconSizeClass, "text-muted-foreground")}
-            />
+            <IconComponent className={cn(iconSizeClass)} />
           </span>
         ) : null}
       </div>
