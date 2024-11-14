@@ -24,7 +24,7 @@ const Navbar = () => {
             height={54}
             priority
             sizes="(max-width: 1023px) 100px, (min-width: 1023px) 140px"
-            src="/EE_LOGO_SMALL.webp"
+            src="/EE_LOGO.svg"
             width={140}
           />
         </Link>
@@ -91,7 +91,7 @@ const Navbar = () => {
                   className="dark:invert"
                   height={54}
                   priority
-                  src="/EE_LOGO_SMALL.webp"
+                  src="/EE_LOGO.svg"
                   width={140}
                 />
               </Link>
