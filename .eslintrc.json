@@ -11,6 +11,28 @@
   "ignorePatterns": ["dist", ".eslintrc.cjs"],
   "parser": "@typescript-eslint/parser",
   "rules": {
+    "import/order": [
+      "error",
+      {
+        "newlines-between": "always",
+        "alphabetize": { "order": "asc" },
+        "groups": [
+          "builtin", // Node.js built-in moduls
+          "external", // External libraries
+          "internal", // Aliases
+          ["parent", "sibling"], // Relative imports
+          "index" // Index imports './'
+        ],
+        "pathGroups": [
+          {
+            "pattern": "@/**",
+            "group": "internal",
+            "position": "before" // before relative imports
+          }
+        ],
+        "pathGroupsExcludedImportTypes": ["builtin"]
+      }
+    ],
     "react/prefer-stateless-function": "error",
     "react/button-has-type": "error",
     "react/no-unused-prop-types": "error",

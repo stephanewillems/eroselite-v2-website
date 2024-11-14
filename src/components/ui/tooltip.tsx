@@ -1,5 +1,6 @@
-import * as React from "react";
 import * as TooltipPrimitive from "@radix-ui/react-tooltip";
+import * as React from "react";
+
 import { cn } from "@/lib/utils";
 
 interface TooltipContentProps extends TooltipPrimitive.TooltipContentProps {
@@ -41,7 +42,11 @@ function TooltipWrap<E extends React.ElementType>(
             sideOffset={4}
           >
             {tooltip}
-            <TooltipPrimitive.Arrow className="TooltipArrow" color="var(--tooltip)" fill="var(--tooltip)" />
+            <TooltipPrimitive.Arrow
+              className="TooltipArrow"
+              color="var(--tooltip)"
+              fill="var(--tooltip)"
+            />
           </TooltipPrimitive.Content>
         </TooltipPrimitive.Tooltip>
       </TooltipPrimitive.TooltipProvider>

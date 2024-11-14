@@ -1,10 +1,12 @@
 "use client";
 
-import { useState } from "react";
-import Link from "next/link";
 import { GlobeIcon, MenuIcon, XIcon } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
+import { useState } from "react";
+
 import { cn } from "@/lib/utils";
+
 import { navigationLinks } from "./constants";
 
 const Navbar = () => {
