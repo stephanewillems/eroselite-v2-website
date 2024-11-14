@@ -31,7 +31,7 @@ const GenderSelect = ({
         {...other}
         defaultValue={defaultValue}
         hideChevronIcon
-        icon={<BookHeartIcon height={15} width={15} />}
+        icon={BookHeartIcon}
         options={localOptions}
         placeholder="Gender"
         value={value}

@@ -10,6 +10,8 @@ import {
 } from "./components";
 import { SelectProps } from "@radix-ui/react-select";
 import { cn } from "@/lib/utils";
+import { InputSize } from "@/types/input";
+import { getInputIconSizes } from "@/utils/input";
 
 export interface Option {
   value: string;
@@ -21,17 +23,15 @@ export interface GroupedOption {
   items: Option[];
 }
 
-export type SelectSize = "sm" | "md" | "lg";
-
 export interface SelectComponentProps extends SelectProps {
   options: Option[] | GroupedOption[];
   placeholder?: string;
-  icon?: React.ReactNode;
+  icon?: React.ComponentType<React.SVGAttributes<SVGElement>>;
   hideChevronIcon?: boolean;
-  size?: SelectSize;
+  size?: InputSize;
 }
 
-const sizeClasses: Record<SelectSize, string> = {
+const sizeClasses: Record<InputSize, string> = {
   sm: "h-7 text-sm min-w-[100px]",
   md: "h-9 text-sm min-w-[150px]",
   lg: "h-11 text-sm min-w-[200px]",
@@ -40,12 +40,13 @@ const sizeClasses: Record<SelectSize, string> = {
 const Select: React.FC<SelectComponentProps> = ({
   options,
   placeholder = "Select...",
-  icon,
+  icon: IconComponent,
   hideChevronIcon = false,
   size = "md",
   ...other
 }) => {
   const isGrouped = "items" in options[0];
+  const [iconWidth, iconHeight] = getInputIconSizes(size);
 
   return (
     <SelectComponent {...other}>
@@ -58,9 +59,11 @@ const Select: React.FC<SelectComponentProps> = ({
           sizeClasses[size]
         )}
       >
-        {icon ? (
+        {IconComponent ? (
           <div className="flex items-center">
-            <span className="mr-2 max-h-fit">{icon}</span>
+            <span className="mr-2 max-h-fit">
+              <IconComponent height={iconWidth} width={iconHeight} />
+            </span>
             <SelectValue placeholder={placeholder} />
           </div>
         ) : (
