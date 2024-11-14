@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 
-import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 import "./globals.css";
+import QuickFilters from "@/components/QuickFilters";
+import Navbar from "@/components/Navbar";
 
 const ceraPro = localFont({
   src: [
@@ -55,10 +56,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${ceraPro.variable} lg:container font-cerapro flex flex-col min-h-screen antialiased`}
+        className={`${ceraPro.variable} font-cerapro flex flex-col min-h-screen antialiased`}
       >
         <Navbar />
-        <main>{children}</main>
+        <QuickFilters />
+        <main className="lg:container">{children}</main>
         <Footer />
       </body>
     </html>

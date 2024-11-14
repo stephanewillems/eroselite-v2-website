@@ -43,7 +43,7 @@ const LocationSelect = ({
         {...other}
         defaultValue={defaultValue}
         hideChevronIcon
-        icon={<Map height={15} width={15} />}
+        icon={Map}
         options={localOptions}
         placeholder="Place"
         value={value}

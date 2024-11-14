@@ -11,10 +11,10 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="bg-background">
+    <div className="lg:container">
       <nav
         className={cn(
-          "relative pl-0 px-6 py-6 flex justify-between items-center",
+          "relative pl-0 px-6 py-6 flex justify-between items-center"
         )}
       >
         <Link href="/">

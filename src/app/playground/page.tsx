@@ -48,7 +48,7 @@ const Playground = () => {
       <div className="bg-eros-bg p-6 flex gap-12 my-4">
         <Select
           defaultValue="nl"
-          icon={<MapIcon height={15} width={15} />}
+          icon={MapIcon}
           options={[
             {
               label: "Primary Languages",
@@ -71,7 +71,7 @@ const Playground = () => {
         />
         <Select
           defaultValue="nl"
-          icon={<MapIcon height={15} width={15} />}
+          icon={MapIcon}
           options={[
             {
               label: "Primary Languages",
@@ -94,7 +94,7 @@ const Playground = () => {
         />
         <Select
           defaultValue="nl"
-          icon={<MapIcon height={15} width={15} />}
+          icon={MapIcon}
           options={[
             {
               label: "Primary Languages",

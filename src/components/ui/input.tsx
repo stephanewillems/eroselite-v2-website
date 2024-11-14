@@ -1,6 +1,7 @@
 import * as React from "react";
 
 import { cn } from "@/lib/utils";
+import { getInputIconSizes } from "@/utils/input";
 
 type Size = "sm" | "md" | "lg";
 
@@ -10,13 +11,13 @@ interface InputProps extends Omit<React.ComponentProps<"input">, "size"> {
 
 const getInputSizeClassname = (size: Size | undefined, hasIcon: boolean) => {
   const inputSizeMap: Record<Size, string> = {
-    sm: cn("h-7 file:text-sm md:text-sm", {
+    sm: cn("h-7 min-w-[100px] file:text-sm md:text-sm", {
       "pl-8": hasIcon,
     }),
-    md: cn("h-9 file:text-md md:text-md", {
+    md: cn("h-9 min-w-[150px] file:text-md md:text-md", {
       "pl-10": hasIcon,
     }),
-    lg: cn("h-11 file:text-lg md:text-lg", {
+    lg: cn("h-11 min-w-[200px] file:text-lg md:text-lg", {
       "pl-12": hasIcon,
     }),
   };
@@ -24,26 +25,14 @@ const getInputSizeClassname = (size: Size | undefined, hasIcon: boolean) => {
   return size ? inputSizeMap[size] : inputSizeMap["md"];
 };
 
-const getIconSizeClassname = (size: Size | undefined) => {
-  const iconSizeMap: Record<Size, string> = {
-    sm: "size-4",
-    md: "size-6",
-    lg: "size-8",
-  };
-
-  return size ? iconSizeMap[size] : iconSizeMap["md"];
-};
-
 interface CustomInputProps extends InputProps {
-  icon?: React.ComponentType<{
-    className?: string;
-  }>;
+  icon?: React.ComponentType<React.SVGAttributes<SVGElement>>;
 }
 
 const Input = React.forwardRef<HTMLInputElement, CustomInputProps>(
   ({ icon: IconComponent, className, type, size, ...props }, ref) => {
     const inputSizeClass = getInputSizeClassname(size, !!IconComponent);
-    const iconSizeClass = getIconSizeClassname(size);
+    const [iconWidth, iconHeight] = getInputIconSizes(size);
 
     return (
       <div className="relative h-full w-full max-w-sm items-center">
@@ -59,7 +48,7 @@ const Input = React.forwardRef<HTMLInputElement, CustomInputProps>(
         />
         {IconComponent ? (
           <span className="absolute start-0 inset-y-0 flex items-center justify-center px-2">
-            <IconComponent className={cn(iconSizeClass)} />
+            <IconComponent height={iconHeight} width={iconWidth} />
           </span>
         ) : null}
       </div>

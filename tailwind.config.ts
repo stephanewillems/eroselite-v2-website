@@ -57,7 +57,10 @@ const config: Config = {
           DEFAULT: "var(--eros-white)",
           foreground: "var(--eros-pink)",
         },
-        border: "var(--border)",
+        border: {
+          DEFAULT: "var(--border)",
+          light: "rgba(255, 255, 255, 0.05)",
+        },
       },
       fontSize: {
         "4xl": ["2.986rem", "3.75rem"],
