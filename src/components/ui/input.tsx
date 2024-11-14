@@ -10,13 +10,13 @@ interface InputProps extends Omit<React.ComponentProps<"input">, "size"> {
 
 const getInputSizeClassname = (size: Size | undefined, hasIcon: boolean) => {
   const inputSizeMap: Record<Size, string> = {
-    sm: cn("h-7 file:text-sm md:text-sm", {
+    sm: cn("h-7 min-w-[100px] file:text-sm md:text-sm", {
       "pl-8": hasIcon,
     }),
-    md: cn("h-9 file:text-md md:text-md", {
+    md: cn("h-9 min-w-[150px] file:text-md md:text-md", {
       "pl-10": hasIcon,
     }),
-    lg: cn("h-11 file:text-lg md:text-lg", {
+    lg: cn("h-11 min-w-[200px] file:text-lg md:text-lg", {
       "pl-12": hasIcon,
     }),
   };
