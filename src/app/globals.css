@@ -29,12 +29,9 @@
 }
 
 html,
-main {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-}
-
+main,
 body {
-  background: transparent;
+  color: var(--foreground) !important;
+  background: var(--background) !important;
+  font-family: Arial, Helvetica, sans-serif;
 }
