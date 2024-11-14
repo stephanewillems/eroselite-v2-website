@@ -1,4 +1,3 @@
-import { Input } from "@/components/ui/input";
 import {
   Circle,
   FilterIcon,
@@ -7,8 +6,11 @@ import {
   UserRoundPlus,
 } from "lucide-react";
 import React from "react";
-import LocationSelect from "../filters/LocationSelect";
+
+import { Input } from "@/components/ui/input";
+
 import GenderSelect from "../filters/GenderSelect";
+import LocationSelect from "../filters/LocationSelect";
 import { Button } from "../ui/button";
 
 const QuickFilters = () => {

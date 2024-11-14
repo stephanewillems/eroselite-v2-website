@@ -1,4 +1,10 @@
+import { SelectProps } from "@radix-ui/react-select";
 import * as React from "react";
+
+import { cn } from "@/lib/utils";
+import { InputSize } from "@/types/input";
+import { getInputIconSizes } from "@/utils/input";
+
 import {
   SelectComponent,
   SelectTrigger,
@@ -8,10 +14,6 @@ import {
   SelectGroup,
   SelectValue,
 } from "./components";
-import { SelectProps } from "@radix-ui/react-select";
-import { cn } from "@/lib/utils";
-import { InputSize } from "@/types/input";
-import { getInputIconSizes } from "@/utils/input";
 
 export interface Option {
   value: string;

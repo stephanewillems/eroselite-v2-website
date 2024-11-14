@@ -2,11 +2,11 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 
 import Footer from "@/components/Footer";
+import Navbar from "@/components/Navbar";
+import QuickFilters from "@/components/QuickFilters";
+import Breadcrumbs from "@/components/breadcrumbs";
 
 import "./globals.css";
-import QuickFilters from "@/components/QuickFilters";
-import Navbar from "@/components/Navbar";
-import Breadcrumbs from "@/components/breadcrumbs";
 
 const ceraPro = localFont({
   src: [
