@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import "./globals.css";
 import QuickFilters from "@/components/QuickFilters";
 import Navbar from "@/components/Navbar";
+import Breadcrumbs from "@/components/breadcrumbs";
 
 const ceraPro = localFont({
   src: [
@@ -60,6 +61,7 @@ export default function RootLayout({
       >
         <Navbar />
         <QuickFilters />
+        <Breadcrumbs />
         <main className="lg:container">{children}</main>
         <Footer />
       </body>
