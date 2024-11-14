@@ -13,7 +13,7 @@ const Footer = () => {
               height={54}
               priority
               sizes="(max-width: 1023px) 100px, (min-width: 1023px) 140px"
-              src="/EE_LOGO_SMALL.webp"
+              src="/EE_LOGO.svg"
               width={140}
             />
             <p className="mt-4 text-sm sm:pr-8">
