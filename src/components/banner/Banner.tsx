@@ -68,7 +68,7 @@ const Banner = () => {
   return (
     <div className="relative flex">
       <Carousel
-        className="w-full static [&>div]:rounded-l-banner flex-1"
+        className="w-full static [&>div]:rounded-banner flex-1"
         plugins={[
           Autoplay({
             delay: 3000,
