@@ -1,7 +1,8 @@
 import { BookHeartIcon } from "lucide-react";
 import React from "react";
 
-import Select, {
+import {
+  Select,
   GroupedOption,
   Option,
   SelectComponentProps,
@@ -17,7 +18,7 @@ interface GenderSelectProps extends Omit<SelectComponentProps, "options"> {
   options?: Option[] | GroupedOption[];
 }
 
-const GenderSelect = ({
+export const GenderSelect = ({
   defaultValue,
   value,
   options,
@@ -39,5 +40,3 @@ const GenderSelect = ({
     </div>
   );
 };
-
-export default GenderSelect;

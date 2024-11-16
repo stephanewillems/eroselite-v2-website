@@ -1,2 +1,1 @@
-import QuickFilters from "./QuickFilters";
-export default QuickFilters;
+export { QuickFilters } from "./QuickFilters";

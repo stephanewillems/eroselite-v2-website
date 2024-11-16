@@ -1,2 +1,1 @@
-import LocationSelect from "./LocationSelect";
-export default LocationSelect;
+export { LocationSelect } from "./LocationSelect";

@@ -7,13 +7,11 @@ import {
 } from "lucide-react";
 import React from "react";
 
+import { LocationSelect, GenderSelect } from "@/components/application/filters";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 
-import GenderSelect from "../GenderSelect";
-import LocationSelect from "../LocationSelect";
-
-const QuickFilters = () => {
+export const QuickFilters = () => {
   return (
     <div className="flex gap-4 border-y border-border-light p-one">
       <div className="text-base flex flex-1 overflow-hidden gap-three items-center lg:container px-one">
@@ -42,5 +40,3 @@ const QuickFilters = () => {
     </div>
   );
 };
-
-export default QuickFilters;

@@ -1,2 +1,1 @@
-import GenderSelect from "./GenderSelect";
-export default GenderSelect;
+export { GenderSelect } from "./GenderSelect";

@@ -17,7 +17,7 @@ interface AccordionProps {
   type?: "single" | "multiple";
 }
 
-const Accordion: React.FC<AccordionProps> = ({
+export const Accordion: React.FC<AccordionProps> = ({
   items,
   collapsible = false,
   type = "single",
@@ -39,5 +39,3 @@ const Accordion: React.FC<AccordionProps> = ({
     </div>
   );
 };
-
-export default Accordion;

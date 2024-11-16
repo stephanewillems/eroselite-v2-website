@@ -8,8 +8,7 @@ import { useState } from "react";
 import { navigationLinks } from "@/constants/navbar";
 import { cn } from "@/lib/utils";
 
-
-const Navbar = () => {
+export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -130,5 +129,3 @@ const Navbar = () => {
     </div>
   );
 };
-
-export default Navbar;

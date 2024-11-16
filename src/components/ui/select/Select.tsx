@@ -39,7 +39,7 @@ const sizeClasses: Record<InputSize, string> = {
   lg: "h-11 text-sm min-w-[200px]",
 };
 
-const Select: React.FC<SelectComponentProps> = ({
+export const Select: React.FC<SelectComponentProps> = ({
   options,
   placeholder = "Select...",
   icon: IconComponent,
@@ -93,5 +93,3 @@ const Select: React.FC<SelectComponentProps> = ({
     </SelectComponent>
   );
 };
-
-export default Select;

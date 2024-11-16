@@ -1,6 +1,5 @@
 "use client";
 
-
 import { ChevronsRightIcon, LucideHouse } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -8,7 +7,6 @@ import React from "react";
 
 import { navigationLinks } from "@/constants/navbar";
 import { cn } from "@/lib/utils";
-
 
 const SeparatorElement = ({ fill = false }: { fill: boolean }) => (
   <ChevronsRightIcon
@@ -18,7 +16,7 @@ const SeparatorElement = ({ fill = false }: { fill: boolean }) => (
   />
 );
 
-const Breadcrumbs = () => {
+export const Breadcrumbs = () => {
   const path = usePathname();
   const pathNames = path.split("/").filter((pathname) => pathname);
 
@@ -61,5 +59,3 @@ const Breadcrumbs = () => {
     </div>
   );
 };
-
-export default Breadcrumbs;
