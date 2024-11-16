@@ -7,11 +7,11 @@ import {
 } from "lucide-react";
 import React from "react";
 
+import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 
-import GenderSelect from "../filters/GenderSelect";
-import LocationSelect from "../filters/LocationSelect";
-import { Button } from "../ui/button";
+import GenderSelect from "../GenderSelect";
+import LocationSelect from "../LocationSelect";
 
 const QuickFilters = () => {
   return (
