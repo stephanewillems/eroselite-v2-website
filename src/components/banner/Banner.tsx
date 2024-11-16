@@ -82,13 +82,13 @@ const Banner = () => {
               key={item.id}
             >
               <div
-                className="flex min-h-[250px] md:w-[60%] md:w-[75%]"
+                className="flex min-h-[250px] md:w-[60%] lg:w-[70%]"
                 id="images-container"
               >
                 <div className="relative flex-1">
                   <Image
                     alt={item.image1.alt}
-                    className="object-contain sm:object-cover"
+                    className="object-cover"
                     fill
                     priority
                     src={item.image1.src}
@@ -97,7 +97,7 @@ const Banner = () => {
                 <div className="hidden sm:block relative flex-1">
                   <Image
                     alt={item.image2.alt}
-                    className="object-contain sm:object-cover"
+                    className="object-cover"
                     fill
                     priority
                     src={item.image2.src}
@@ -105,10 +105,10 @@ const Banner = () => {
                 </div>
               </div>
 
-              <div className="flex flex-col justify-between gap-8 bg-eros-black p-one md:gap-4 md:w-[40%] md:pr-three lg:pr-four lg:w-[25%]">
+              <div className="flex flex-col justify-between gap-8 bg-eros-black p-one sm:pr-two md:gap-4 md:w-[40%] md:pr-three lg:p-two lg:pr-four lg:w-[30%]">
                 <h3 className="text-md text-foreground">{item.title}</h3>
                 <p className="text-base">{item.description}</p>
-                <div className="flex items-center justify-between">
+                <div className="flex flex-wrap gap-half items-center justify-between">
                   <span>{item.phone}</span>
                   <Button variant="primary">{item.cta}</Button>
                 </div>
@@ -116,8 +116,8 @@ const Banner = () => {
             </CarouselItem>
           ))}
         </CarouselContent>
-        <CarouselPrevious className="bg-transparent left-one border-2 w-[25px] h-[25px] top-1/4 md:top-1/2 sm:[&_svg]:size-8 sm:w-[40px] sm:h-[40px]" />
-        <CarouselNext className="bg-transparent right-one border-2 w-[25px] h-[25px] top-1/4 md:top-1/2 sm:[&_svg]:size-8 sm:w-[40px] sm:h-[40px]" />
+        <CarouselPrevious className="bg-transparent left-quarter border-2 w-[25px] h-[25px] top-1/4 sm:[&_svg]:size-8 sm:w-[40px] sm:h-[40px] md:top-1/2 lg:left-one" />
+        <CarouselNext className="bg-transparent right-quarter border-2 w-[25px] h-[25px] top-1/4 sm:[&_svg]:size-8 sm:w-[40px] sm:h-[40px] md:top-1/2 lg:right-one " />
       </Carousel>
     </div>
   );
