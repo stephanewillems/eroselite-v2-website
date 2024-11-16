@@ -1,8 +1,8 @@
 import { SelectProps } from "@radix-ui/react-select";
 import * as React from "react";
 
-import { cn } from "@/lib/utils";
 import { InputSize } from "@/types/input";
+import { cn } from "@/utils/classnames";
 import { getInputIconSizes } from "@/utils/input";
 
 import {

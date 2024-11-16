@@ -6,7 +6,7 @@ import Link from "next/link";
 import { useState } from "react";
 
 import { navigationLinks } from "@/constants/navbar";
-import { cn } from "@/lib/utils";
+import { cn } from "@/utils/classnames";
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);

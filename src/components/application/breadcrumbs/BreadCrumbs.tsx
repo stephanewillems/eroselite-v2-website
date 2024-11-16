@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 import React from "react";
 
 import { navigationLinks } from "@/constants/navbar";
-import { cn } from "@/lib/utils";
+import { cn } from "@/utils/classnames";
 
 const SeparatorElement = ({ fill = false }: { fill: boolean }) => (
   <ChevronsRightIcon
