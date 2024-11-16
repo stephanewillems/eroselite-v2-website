@@ -16,7 +16,7 @@ import { Button } from "../ui/button";
 const QuickFilters = () => {
   return (
     <div className="flex gap-4 border-y border-border-light p-one">
-      <div className="text-base flex flex-1 overflow-hidden gap-three items-center lg:container">
+      <div className="text-base flex flex-1 overflow-hidden gap-three items-center lg:container px-one">
         <div className="flex flex-1 items-center gap-one overflow-x-scroll hide-scrollbar lg:gap-two">
           <Button className="min-w-[35px]" size="icon" variant="primary">
             <FilterIcon height={35} width={35} />

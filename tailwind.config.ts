@@ -103,6 +103,7 @@ const config: Config = {
         right: "8px 0 15px -3px rgba(0, 0, 0, 0.1)",
       },
       borderRadius: {
+        banner: "calc(var(--radius) + 12px)",
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",

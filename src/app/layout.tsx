@@ -62,7 +62,7 @@ export default function RootLayout({
         <Navbar />
         <QuickFilters />
         <Breadcrumbs />
-        <main className="lg:container">{children}</main>
+        <main className="lg:container px-one">{children}</main>
         <Footer />
       </body>
     </html>
