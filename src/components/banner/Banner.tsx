@@ -116,8 +116,8 @@ const Banner = () => {
             </CarouselItem>
           ))}
         </CarouselContent>
-        <CarouselPrevious className="bg-transparent left-one border-2 w-[25px] h-[25px] top-[30%] md:top-1/2 sm:[&_svg]:size-8 sm:w-[40px] sm:h-[40px]" />
-        <CarouselNext className="bg-transparent right-one border-2 w-[25px] h-[25px] top-[30%] md:top-1/2 sm:[&_svg]:size-8 sm:w-[40px] sm:h-[40px]" />
+        <CarouselPrevious className="bg-transparent left-one border-2 w-[25px] h-[25px] top-1/4 md:top-1/2 sm:[&_svg]:size-8 sm:w-[40px] sm:h-[40px]" />
+        <CarouselNext className="bg-transparent right-one border-2 w-[25px] h-[25px] top-1/4 md:top-1/2 sm:[&_svg]:size-8 sm:w-[40px] sm:h-[40px]" />
       </Carousel>
     </div>
   );
