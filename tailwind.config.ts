@@ -108,6 +108,13 @@ const config: Config = {
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
+      zIndex: {
+        sticky: "10",
+        popup: "20",
+      },
+      boxShadow: {
+        'custom': '0px 7px 3.8px 0px rgba(0, 0, 0, 0.25)',
+      },
       // TODO: uncomment once we get assets
       // backgroundImage: {
       //   "eros-1": "url('/src/assets/images/eros-bg-1.jpg')",
