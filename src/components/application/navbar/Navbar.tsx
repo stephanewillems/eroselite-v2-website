@@ -5,9 +5,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
+import { navigationLinks } from "@/constants/navbar";
 import { cn } from "@/lib/utils";
 
-import { navigationLinks } from "./constants";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);

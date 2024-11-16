@@ -1,13 +1,14 @@
 "use client";
 
+
 import { ChevronsRightIcon, LucideHouse } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React from "react";
 
+import { navigationLinks } from "@/constants/navbar";
 import { cn } from "@/lib/utils";
 
-import { navigationLinks } from "../Navbar/constants";
 
 const SeparatorElement = ({ fill = false }: { fill: boolean }) => (
   <ChevronsRightIcon
