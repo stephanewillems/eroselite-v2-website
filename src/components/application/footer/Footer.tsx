@@ -2,7 +2,7 @@ import { GlobeIcon } from "lucide-react";
 import Image from "next/image";
 import React from "react";
 
-const Footer = () => {
+export const Footer = () => {
   return (
     <footer className="border-t border-border-light">
       <div className="lg:container flex flex-col gap-16 py-8 px-6">
@@ -87,5 +87,3 @@ const Footer = () => {
     </footer>
   );
 };
-
-export default Footer;

@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import Autoplay from "embla-carousel-autoplay";
 import Image from "next/image";
@@ -64,7 +64,7 @@ const items = [
   },
 ];
 
-const Banner = () => {
+export const Banner = () => {
   return (
     <div className="relative flex">
       <Carousel
@@ -122,5 +122,3 @@ const Banner = () => {
     </div>
   );
 };
-
-export default Banner;

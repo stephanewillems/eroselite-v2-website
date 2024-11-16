@@ -1,9 +1,9 @@
 import { PiIcon, MapIcon, Map } from "lucide-react";
 
-import Accordion from "@/components/ui/accordion";
+import { Accordion } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import Select from "@/components/ui/select";
+import { Select } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 import { TooltipWrap } from "@/components/ui/tooltip";
 

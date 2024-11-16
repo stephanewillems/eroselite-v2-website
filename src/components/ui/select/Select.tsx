@@ -1,8 +1,8 @@
 import { SelectProps } from "@radix-ui/react-select";
 import * as React from "react";
 
-import { cn } from "@/lib/utils";
 import { InputSize } from "@/types/input";
+import { cn } from "@/utils/classnames";
 import { getInputIconSizes } from "@/utils/input";
 
 import {
@@ -39,7 +39,7 @@ const sizeClasses: Record<InputSize, string> = {
   lg: "h-11 text-sm min-w-[200px]",
 };
 
-const Select: React.FC<SelectComponentProps> = ({
+export const Select: React.FC<SelectComponentProps> = ({
   options,
   placeholder = "Select...",
   icon: IconComponent,
@@ -93,5 +93,3 @@ const Select: React.FC<SelectComponentProps> = ({
     </SelectComponent>
   );
 };
-
-export default Select;

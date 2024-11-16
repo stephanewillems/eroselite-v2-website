@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 
-import Footer from "@/components/Footer";
-import Navbar from "@/components/Navbar";
-import QuickFilters from "@/components/QuickFilters";
-import Breadcrumbs from "@/components/breadcrumbs";
+import { Breadcrumbs } from "@/components/application/breadcrumbs";
+import { QuickFilters } from "@/components/application/filters/QuickFilters";
+import { Footer } from "@/components/application/footer";
+import { Navbar } from "@/components/application/navbar";
 
 import "./globals.css";
 

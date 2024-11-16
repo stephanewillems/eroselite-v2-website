@@ -1,7 +1,8 @@
 import { Map } from "lucide-react";
 import React from "react";
 
-import Select, {
+import {
+  Select,
   GroupedOption,
   Option,
   SelectComponentProps,
@@ -29,7 +30,7 @@ interface LocationSelectProps extends Omit<SelectComponentProps, "options"> {
   options?: Option[] | GroupedOption[];
 }
 
-const LocationSelect = ({
+export const LocationSelect = ({
   defaultValue,
   value,
   options,
@@ -51,5 +52,3 @@ const LocationSelect = ({
     </div>
   );
 };
-
-export default LocationSelect;

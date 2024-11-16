@@ -5,11 +5,10 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
-import { cn } from "@/lib/utils";
+import { navigationLinks } from "@/constants/navbar";
+import { cn } from "@/utils/classnames";
 
-import { navigationLinks } from "./constants";
-
-const Navbar = () => {
+export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -130,5 +129,3 @@ const Navbar = () => {
     </div>
   );
 };
-
-export default Navbar;
