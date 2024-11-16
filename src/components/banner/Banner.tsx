@@ -1,3 +1,6 @@
+"use client"
+
+import Autoplay from "embla-carousel-autoplay";
 import Image from "next/image";
 import React from "react";
 
@@ -43,6 +46,22 @@ const items = [
       alt: "Eros Elite logo",
     },
   },
+  {
+    id: 3,
+    title: "Brussels Fetisvalen",
+    description:
+      "Body text with a min of 50 and a max of 250. This is the body text with a min of 50 and a max of 250.",
+    phone: "0477 45 56 67",
+    cta: "Click More",
+    image1: {
+      src: "/bannerImage1.svg",
+      alt: "Eros Elite logo",
+    },
+    image2: {
+      src: "/bannerImage2.svg",
+      alt: "Eros Elite logo",
+    },
+  },
 ];
 
 const Banner = () => {
@@ -50,13 +69,18 @@ const Banner = () => {
     <div className="relative flex">
       <Carousel
         className="w-full static [&>div]:rounded-l-banner flex-1"
-        opts={{
-          align: "start",
-        }}
+        plugins={[
+          Autoplay({
+            delay: 3000,
+          }),
+        ]}
       >
         <CarouselContent>
           {items.map((item) => (
-            <CarouselItem className="flex flex-col md:flex-row lg:max-h-[325px] lg:min-h-[325px]" key={item.id}>
+            <CarouselItem
+              className="flex flex-col md:flex-row lg:max-h-[325px] lg:min-h-[325px]"
+              key={item.id}
+            >
               <div
                 className="flex min-h-[250px] md:w-[60%] md:w-[75%]"
                 id="images-container"
