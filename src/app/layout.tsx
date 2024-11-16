@@ -59,8 +59,10 @@ export default function RootLayout({
       <body
         className={`${ceraPro.variable} font-cerapro flex flex-col min-h-screen antialiased`}
       >
-        <Navbar />
-        <QuickFilters />
+        <div className="flex flex-col sticky z-sticky top-0 shadow-custom">
+          <Navbar />
+          <QuickFilters />
+        </div>
         <Breadcrumbs />
         <main className="lg:container px-one">{children}</main>
         <Footer />

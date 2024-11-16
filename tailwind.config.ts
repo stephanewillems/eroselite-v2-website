@@ -68,8 +68,8 @@ const config: Config = {
         "2xl": ["2.074rem", "2.5rem"],
         xl: ["1.728rem", "2.5rem"],
         lg: ["1.44rem", "2.5rem"],
-        md: ["1.2rem", "2.5rem"],
-        base: ["1rem", "2.5rem"],
+        md: ["1.2rem", "1.5rem"],
+        base: ["1rem", "1.5rem"],
         sm: ["0.833rem", "1.25rem"],
         xs: ["0.694rem", "1.25rem"],
       },
@@ -107,6 +107,13 @@ const config: Config = {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
+      },
+      zIndex: {
+        sticky: "10",
+        popup: "20",
+      },
+      boxShadow: {
+        'custom': '0px 7px 3.8px 0px rgba(0, 0, 0, 0.25)',
       },
       // TODO: uncomment once we get assets
       // backgroundImage: {

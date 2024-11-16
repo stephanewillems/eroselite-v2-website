@@ -12,7 +12,7 @@ export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="lg:container">
+    <div className="lg:container bg-background">
       <nav
         className={cn(
           "relative pl-0 px-6 py-6 flex justify-between items-center"
