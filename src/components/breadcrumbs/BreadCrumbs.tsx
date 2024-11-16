@@ -22,7 +22,7 @@ const Breadcrumbs = () => {
   const pathNames = path.split("/").filter((pathname) => pathname);
 
   return (
-    <div className="container p-one">
+    <div className="lg:container p-one">
       <ul className="flex gap-half items-center">
         <li>
           <Link aria-label="Home" href="/">
