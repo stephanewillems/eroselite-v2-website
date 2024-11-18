@@ -12,8 +12,13 @@ const MAXIMUM_BANNERS_PER_CAROUSEL = 10;
 const MAXIMUM_ADDS_PER_GRID = 8;
 
 export const InfiniteScrollPageContent = () => {
-  const { homepageItems, categoryItems, isLoadingMore, loadMore } =
-    useDualInfiniteScroll();
+  const {
+    homepageItems,
+    categoryItems,
+    isLoadingMore,
+    isReachingEnd,
+    loadMore,
+  } = useDualInfiniteScroll();
 
   const sections = useMemo(() => {
     const newSections: JSX.Element[] = [];
@@ -59,10 +64,14 @@ export const InfiniteScrollPageContent = () => {
     const scrollHeight = document.documentElement.scrollHeight;
     const clientHeight = document.documentElement.clientHeight;
 
-    if (scrollHeight - scrollTop - clientHeight < 100 && !isLoadingMore) {
+    if (
+      scrollHeight - scrollTop - clientHeight < 100 &&
+      !isLoadingMore &&
+      !isReachingEnd
+    ) {
       loadMore();
     }
-  }, [isLoadingMore, loadMore]);
+  }, [isLoadingMore, isReachingEnd, loadMore]);
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
@@ -77,6 +86,11 @@ export const InfiniteScrollPageContent = () => {
         <div className="flex justify-center">
           <LoadingSpinner />
         </div>
+      ) : null}
+      {isReachingEnd ? (
+        <p className="flex justify-center animate-pulse text-primary text-md">
+          You have reached the end!
+        </p>
       ) : null}
     </div>
   );
