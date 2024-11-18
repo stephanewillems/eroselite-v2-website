@@ -1,17 +1,19 @@
 "use client";
 
-import React, { useMemo } from "react";
+import React, { useCallback, useEffect, useMemo } from "react";
 
 import useDualInfiniteScroll from "@/hooks/useDualInfiniteScroll";
 
 import { CardsGrid } from "../application/advertisements/cardsGrid";
 import { Banner } from "../application/banner";
+import { LoadingSpinner } from "../ui/loadingSpinner";
 
 const MAXIMUM_BANNERS_PER_CAROUSEL = 10;
 const MAXIMUM_ADDS_PER_GRID = 8;
 
 export const InfiniteScrollPageContent = () => {
-  const { homepageItems, categoryItems } = useDualInfiniteScroll();
+  const { homepageItems, categoryItems, isLoadingMore, loadMore } =
+    useDualInfiniteScroll();
 
   const sections = useMemo(() => {
     const newSections: JSX.Element[] = [];
@@ -52,5 +54,28 @@ export const InfiniteScrollPageContent = () => {
     return newSections;
   }, [homepageItems, categoryItems]);
 
-  return <div>{sections}</div>;
+  const handleScroll = useCallback(() => {
+    const scrollTop = document.documentElement.scrollTop;
+    const scrollHeight = document.documentElement.scrollHeight;
+    const clientHeight = document.documentElement.clientHeight;
+
+    if (scrollHeight - scrollTop - clientHeight < 100 && !isLoadingMore) {
+      loadMore();
+    }
+  }, [isLoadingMore, loadMore]);
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+  }, [handleScroll]);
+
+  return (
+    <div>
+      {sections}
+      {isLoadingMore ? (
+        <div className="flex justify-center">
+          <LoadingSpinner />
+        </div>
+      ) : null}
+    </div>
+  );
 };
