@@ -4,6 +4,7 @@ import { advertisements } from "@/data/advertisements";
 import { Advertisement } from "@/types/api";
 
 const homepageData = advertisements.filter((ad) => ad.place === "homepage");
+const categoryData = advertisements.filter((ad) => ad.place === "category");
 
 const BANNER_PAGINATION_SIZE = 20;
 export const bannerAdvertisementsFetcher = (path: string) => {
@@ -16,6 +17,20 @@ export const bannerAdvertisementsFetcher = (path: string) => {
 
   return new Promise((resolve) =>
     setTimeout(() => resolve(homepageData.slice(start, end)), 500)
+  ) as Promise<Advertisement[]>;
+};
+
+const CATEGORY_PAGINATION_SIZE = 16;
+export const categoryAdvertisementsFetcher = (path: string) => {
+  const [, queryParams] = path.split("?");
+  const [, page] = queryParams.split("&");
+  const pageNum = parseInt(page.split("=")[1]) || 1;
+
+  const start = (pageNum - 1) * CATEGORY_PAGINATION_SIZE;
+  const end = start + CATEGORY_PAGINATION_SIZE;
+
+  return new Promise((resolve) =>
+    setTimeout(() => resolve(categoryData.slice(start, end)), 500)
   ) as Promise<Advertisement[]>;
 };
 
@@ -37,7 +52,10 @@ const useDualInfiniteScroll = () => {
     isValidating: isFetchingCategories,
     isLoading: isLoadingCategories,
     setSize: setCategorySize,
-  } = useSWRInfinite<Advertisement[]>(categoryKey, () => {});
+  } = useSWRInfinite<Advertisement[]>(
+    categoryKey,
+    categoryAdvertisementsFetcher
+  );
 
   const isLoadingMore =
     isLoadingBanners ||
