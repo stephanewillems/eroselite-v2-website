@@ -1,13 +1,9 @@
-import { CardsGrid } from "@/components/application/advertisements/cardsGrid";
-import { Banner } from "@/components/application/banner";
+import { InfiniteScrollPageContent } from "@/components/templates/InfiniteScrollPageContent";
 
 const Home = () => {
   return (
     <div className="py-one">
-      <Banner />
-      <CardsGrid />
-      <Banner />
-      <CardsGrid />
+      <InfiniteScrollPageContent />
     </div>
   );
 };
