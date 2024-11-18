@@ -1,6 +1,23 @@
 import useSWRInfinite from "swr/infinite";
 
+import { advertisements } from "@/data/advertisements";
 import { Advertisement } from "@/types/api";
+
+const homepageData = advertisements.filter((ad) => ad.place === "homepage");
+
+const BANNER_PAGINATION_SIZE = 20;
+export const bannerAdvertisementsFetcher = (path: string) => {
+  const [, queryParams] = path.split("?");
+  const [, page] = queryParams.split("&");
+  const pageNum = parseInt(page.split("=")[1]) || 1;
+
+  const start = (pageNum - 1) * BANNER_PAGINATION_SIZE;
+  const end = start + BANNER_PAGINATION_SIZE;
+
+  return new Promise((resolve) =>
+    setTimeout(() => resolve(homepageData.slice(start, end)), 500)
+  ) as Promise<Advertisement[]>;
+};
 
 const useDualInfiniteScroll = () => {
   const homepageKey = (index: number) =>
@@ -13,7 +30,7 @@ const useDualInfiniteScroll = () => {
     isValidating: isFetchingBanners,
     isLoading: isLoadingBanners,
     setSize: setHomepageSize,
-  } = useSWRInfinite<Advertisement[]>(homepageKey, () => {});
+  } = useSWRInfinite<Advertisement[]>(homepageKey, bannerAdvertisementsFetcher);
 
   const {
     data: categoryData,
