@@ -12,59 +12,13 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import { Advertisement } from "@/types/api";
 
-const items = [
-  {
-    id: 1,
-    title: "Flemisht Fetisvalen",
-    description:
-      "This is the body text with a min of 50 and a max of 250. This is the body text with a min of 50 and a max of 250.",
-    phone: "0477 45 56 67",
-    cta: "Read More",
-    image1: {
-      src: "/bannerImage1.svg",
-      alt: "Eros Elite logo",
-    },
-    image2: {
-      src: "/bannerImage2.svg",
-      alt: "Eros Elite logo",
-    },
-  },
-  {
-    id: 2,
-    title: "Gentsen Fetisvalen",
-    description:
-      "Body text with a min of 50 and a max of 250. This is the body text with a min of 50 and a max of 250.",
-    phone: "0477 45 56 67",
-    cta: "Click More",
-    image1: {
-      src: "/bannerImage2.svg",
-      alt: "Eros Elite logo",
-    },
-    image2: {
-      src: "/bannerImage1.svg",
-      alt: "Eros Elite logo",
-    },
-  },
-  {
-    id: 3,
-    title: "Brussels Fetisvalen",
-    description:
-      "Body text with a min of 50 and a max of 250. This is the body text with a min of 50 and a max of 250.",
-    phone: "0477 45 56 67",
-    cta: "Click More",
-    image1: {
-      src: "/bannerImage1.svg",
-      alt: "Eros Elite logo",
-    },
-    image2: {
-      src: "/bannerImage2.svg",
-      alt: "Eros Elite logo",
-    },
-  },
-];
+interface BannerProps {
+  items: Advertisement[];
+}
 
-export const Banner = () => {
+export const Banner = ({ items = [] }: BannerProps) => {
   return (
     <div className="relative flex">
       <Carousel

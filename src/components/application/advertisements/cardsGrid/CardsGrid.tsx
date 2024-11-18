@@ -1,15 +1,17 @@
 import React from "react";
 
+import { Advertisement } from "@/types/api";
+
 import { Card } from "../card";
 
 interface CardsGridProps {
-  numberOfCards?: number;
+  items?: Advertisement[];
 }
 
-export const CardsGrid = ({ numberOfCards = 8 }: CardsGridProps) => {
+export const CardsGrid = ({ items = [] }: CardsGridProps) => {
   return (
     <div className="py-two grid gap-8 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 md:py-three xl:gap-12 xl:grid-cols-4">
-      {Array.from({ length: numberOfCards }).map((_, idx) => (
+      {items.map((_, idx) => (
         <React.Fragment key={idx}>
           <Card />
         </React.Fragment>
