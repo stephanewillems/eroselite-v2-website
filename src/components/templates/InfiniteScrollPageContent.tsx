@@ -2,7 +2,7 @@
 
 import React, { useCallback, useEffect, useMemo } from "react";
 
-import useDualInfiniteScroll from "@/hooks/useDualInfiniteScroll";
+import useInfiniteScroll from "@/hooks/useInfiniteScroll";
 
 import { CardsGrid } from "../application/advertisements/cardsGrid";
 import { Banner } from "../application/banner";
@@ -13,12 +13,21 @@ const MAXIMUM_ADDS_PER_GRID = 8;
 
 export const InfiniteScrollPageContent = () => {
   const {
-    homepageItems,
-    categoryItems,
-    isLoadingMore,
-    isReachingEnd,
-    loadMore,
-  } = useDualInfiniteScroll();
+    items: homepageItems,
+    isLoadingMore: homepageItemsAreLoading,
+    hasReachedEnd: homepageItemsReachedEnd,
+    loadMore: loadMoreHomepageItems,
+  } = useInfiniteScroll("homepage");
+
+  const {
+    items: categoryItems,
+    isLoadingMore: categoryItemsAreLoading,
+    hasReachedEnd: categoryItemsReachedEnd,
+    loadMore: loadMoreCategoryItems,
+  } = useInfiniteScroll("category");
+
+  const isLoadingMore = homepageItemsAreLoading || categoryItemsAreLoading;
+  const hasReachedEnd = homepageItemsReachedEnd && categoryItemsReachedEnd;
 
   const sections = useMemo(() => {
     const newSections: JSX.Element[] = [];
@@ -63,15 +72,28 @@ export const InfiniteScrollPageContent = () => {
     const scrollTop = document.documentElement.scrollTop;
     const scrollHeight = document.documentElement.scrollHeight;
     const clientHeight = document.documentElement.clientHeight;
+    const touchedBottom = scrollHeight - scrollTop - clientHeight < 100;
 
-    if (
-      scrollHeight - scrollTop - clientHeight < 100 &&
-      !isLoadingMore &&
-      !isReachingEnd
-    ) {
-      loadMore();
+    const shouldLoadMoreCategoryAdds =
+      touchedBottom && !categoryItemsReachedEnd && !categoryItemsAreLoading;
+    const shouldLoadMoreHomepageBanners =
+      touchedBottom && !homepageItemsReachedEnd && !homepageItemsAreLoading;
+
+    if (shouldLoadMoreCategoryAdds) {
+      loadMoreCategoryItems();
     }
-  }, [isLoadingMore, isReachingEnd, loadMore]);
+
+    if (shouldLoadMoreHomepageBanners) {
+      loadMoreHomepageItems();
+    }
+  }, [
+    categoryItemsAreLoading,
+    categoryItemsReachedEnd,
+    homepageItemsAreLoading,
+    homepageItemsReachedEnd,
+    loadMoreCategoryItems,
+    loadMoreHomepageItems,
+  ]);
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
@@ -87,7 +109,7 @@ export const InfiniteScrollPageContent = () => {
           <LoadingSpinner />
         </div>
       ) : null}
-      {isReachingEnd ? (
+      {hasReachedEnd ? (
         <p className="flex justify-center animate-pulse text-primary text-md">
           You have reached the end!
         </p>
