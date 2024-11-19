@@ -14,13 +14,13 @@ import {
 } from "@/components/ui/carousel";
 import { Advertisement } from "@/types/api";
 
-interface BannerProps {
+interface BannerProps extends React.HTMLAttributes<HTMLElement> {
   items: Advertisement[];
 }
 
-export const Banner = ({ items = [] }: BannerProps) => {
+export const Banner = ({ items = [], ...other }: BannerProps) => {
   return (
-    <div className="relative flex">
+    <div className="relative flex" {...other}>
       <Carousel
         className="w-full static [&>div]:rounded-banner flex-1"
         plugins={[

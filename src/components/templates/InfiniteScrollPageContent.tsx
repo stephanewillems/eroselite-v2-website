@@ -103,14 +103,14 @@ export const InfiniteScrollPageContent = () => {
 
   return (
     <div>
-      {sections}
+      <div className="flex flex-col gap-8 xl:gap-12">{sections}</div>
       {isLoadingMore ? (
-        <div className="flex justify-center">
+        <div className="flex py-one justify-center md:py-two">
           <LoadingSpinner />
         </div>
       ) : null}
       {hasReachedEnd ? (
-        <p className="flex justify-center animate-pulse text-primary text-md">
+        <p className="py-one flex justify-center animate-pulse text-primary text-md md:py-two">
           You have reached the end!
         </p>
       ) : null}
