@@ -10,7 +10,7 @@ function usePaginatedData<T>(
   const key = `${path}&page=${pageNumber}&size=${pageSize}`;
   const { data, error, isValidating } = useSWR<T[]>(key, () => fetcher(key));
 
-  const totalItems = data?.length || 0; // this should be coming from BE as a meta field
+  const totalItems = 50; // this should be coming from BE as a meta field
   const totalPages = Math.ceil(totalItems / pageSize);
 
   return {
