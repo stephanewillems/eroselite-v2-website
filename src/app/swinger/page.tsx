@@ -2,7 +2,7 @@ import React from "react";
 
 import { PaginatedContent } from "@/components/templates/PaginatedPageContent";
 
-const VitrinesPage = () => {
+const SwingerPage = () => {
   return (
     <div>
       <PaginatedContent />
@@ -10,4 +10,4 @@ const VitrinesPage = () => {
   );
 };
 
-export default VitrinesPage;
+export default SwingerPage;
