@@ -1,4 +1,4 @@
-import { advertisements } from "@/data/advertisements";
+import { advertisementsDummyData } from "@/data/advertisements";
 import { Advertisement } from "@/types/api";
 
 export type Fetcher<T> = (path: string) => Promise<T>;
@@ -17,7 +17,7 @@ export const advertisementsFetcher = (path: string) => {
   const pageNumber = parseInt(params.page || "1");
   const pageSize = parseInt(params.size || "10");
 
-  const filteredData = advertisements.filter((ad) => ad.place === type);
+  const filteredData = advertisementsDummyData.filter((ad) => ad.place === type);
   const start = (pageNumber - 1) * pageSize;
   const end = start + pageSize;
 

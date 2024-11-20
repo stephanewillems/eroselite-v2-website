@@ -1,6 +1,6 @@
 import { Advertisement } from "@/types/api";
 
-export const advertisements: Advertisement[] = [
+export const advertisementsDummyData: Advertisement[] = [
   {
     id: "835062fc-2a5f-4613-9c5c-5f3642bdbe27",
     title: "Altenwerth Group",
