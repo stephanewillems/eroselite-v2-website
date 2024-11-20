@@ -2,11 +2,12 @@
 
 import React, { useCallback, useEffect, useMemo } from "react";
 
+import { advertisementsFetcher } from "@/api/fetcher";
+import { CardsGrid } from "@/components/application/advertisements/cardsGrid";
+import { Banner } from "@/components/application/banner";
+import { LoadingSpinner } from "@/components/ui/loadingSpinner";
 import useInfiniteScroll from "@/hooks/useInfiniteScroll";
-
-import { CardsGrid } from "../application/advertisements/cardsGrid";
-import { Banner } from "../application/banner";
-import { LoadingSpinner } from "../ui/loadingSpinner";
+import { Advertisement } from "@/types/api";
 
 const MAXIMUM_BANNERS_PER_CAROUSEL = 10;
 const MAXIMUM_ADDS_PER_GRID = 8;
@@ -17,14 +18,20 @@ export const InfiniteScrollPageContent = () => {
     isLoadingMore: homepageItemsAreLoading,
     hasReachedEnd: homepageItemsReachedEnd,
     loadMore: loadMoreHomepageItems,
-  } = useInfiniteScroll("homepage");
+  } = useInfiniteScroll<Advertisement[]>(
+    "/api/advertisements?type=homepage",
+    advertisementsFetcher
+  );
 
   const {
     items: categoryItems,
     isLoadingMore: categoryItemsAreLoading,
     hasReachedEnd: categoryItemsReachedEnd,
     loadMore: loadMoreCategoryItems,
-  } = useInfiniteScroll("category");
+  } = useInfiniteScroll<Advertisement[]>(
+    "/api/advertisements?type=category",
+    advertisementsFetcher
+  );
 
   const isLoadingMore = homepageItemsAreLoading || categoryItemsAreLoading;
   const hasReachedEnd = homepageItemsReachedEnd && categoryItemsReachedEnd;

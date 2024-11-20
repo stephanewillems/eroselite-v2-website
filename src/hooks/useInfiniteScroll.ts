@@ -1,41 +1,27 @@
 import useSWRInfinite from "swr/infinite";
 
-import { advertisements } from "@/data/advertisements";
-import { Advertisement } from "@/types/api";
+import { Fetcher } from "@/api/fetcher";
 
-type AdvertisementType = "homepage" | "category";
-
-const HOMEPAGE_BANNER_PAGINATION_SIZE = 20;
-const CATEGORY_PAGINATION_SIZE = 16;
-
-// TODO: replace dummy data with real api
-export const advertisementsFetcher = (path: string) => {
-  const [, queryParams] = path.split("?");
-  const [typeParam, pageParam] = queryParams.split("&");
-  const type = typeParam.split("=")[1];
-  const page = parseInt(pageParam.split("=")[1], 10) || 1;
-
-  const PAGE_SIZE =
-    type === "homepage"
-      ? HOMEPAGE_BANNER_PAGINATION_SIZE
-      : CATEGORY_PAGINATION_SIZE;
-  const filteredData = advertisements.filter((ad) => ad.place === type);
-
-  const start = (page - 1) * PAGE_SIZE;
-  const end = start + PAGE_SIZE;
-
-  return new Promise((resolve) =>
-    setTimeout(() => resolve(filteredData.slice(start, end)), 500)
-  ) as Promise<Advertisement[]>;
+const defaultPageConfig = {
+  pageSize: 16,
+  initialPageNumber: 1,
 };
 
-const useInfiniteScroll = (type: AdvertisementType) => {
-  const key = (index: number) =>
-    `/api/advertisements?type=${type}&page=${index + 1}`;
+// TODO: remove fetcher from the future, we should be able to use only the key to fetch the data. The fetcher will be generic for our whole API
+function useInfiniteScroll<T extends unknown[]>(
+  path: string,
+  fetcher: Fetcher<T>,
+  pageConfig?: { pageSize: number; initialPageNumber: number }
+) {
+  const { pageSize, initialPageNumber } = pageConfig || defaultPageConfig;
 
-  const { data, isValidating, isLoading, setSize } = useSWRInfinite<
-    Advertisement[]
-  >(key, advertisementsFetcher);
+  const key = (index: number) =>
+    `${path}&page=${index + initialPageNumber}&size=${pageSize}`;
+
+  const { data, isValidating, isLoading, setSize } = useSWRInfinite<T>(
+    key,
+    fetcher
+  );
 
   const items = data ? data.flat() : [];
   const hasReachedEnd = data?.[data.length - 1]?.length === 0;
@@ -50,6 +36,6 @@ const useInfiniteScroll = (type: AdvertisementType) => {
     hasReachedEnd,
     loadMore,
   };
-};
+}
 
 export default useInfiniteScroll;

@@ -11,9 +11,9 @@ interface CardsGridProps extends React.HTMLAttributes<HTMLElement> {
 export const CardsGrid = ({ items = [] }: CardsGridProps) => {
   return (
     <div className="grid gap-8 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:gap-12 xl:grid-cols-4">
-      {items.map((_, idx) => (
+      {items.map((advertisement, idx) => (
         <React.Fragment key={idx}>
-          <Card />
+          <Card advertisement={advertisement} />
         </React.Fragment>
       ))}
     </div>
