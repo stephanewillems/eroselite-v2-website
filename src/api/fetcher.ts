@@ -1,28 +1,27 @@
 import { advertisements } from "@/data/advertisements";
 import { Advertisement } from "@/types/api";
 
-export type AdvertisementType = "homepage" | "category";
+export type Fetcher<T> = (path: string) => Promise<T>;
 
-const HOMEPAGE_BANNER_PAGINATION_SIZE = 20;
-const CATEGORY_PAGINATION_SIZE = 16;
+export type AdvertisementType = "homepage" | "category";
 
 // TODO: replace dummy data with real api
 export const advertisementsFetcher = (path: string) => {
-  const [, queryParams] = path.split("?");
-  const [typeParam, pageParam] = queryParams.split("&");
-  const type = typeParam.split("=")[1];
-  const page = parseInt(pageParam.split("=")[1], 10) || 1;
+  // Extract query parameters manually
+  const queryParams = path.split("?")[1] || "";
+  const params = Object.fromEntries(
+    queryParams.split("&").map((param) => param.split("="))
+  );
 
-  const PAGE_SIZE =
-    type === "homepage"
-      ? HOMEPAGE_BANNER_PAGINATION_SIZE
-      : CATEGORY_PAGINATION_SIZE;
+  const type = params.type || "";
+  const pageNumber = parseInt(params.page || "1");
+  const pageSize = parseInt(params.size || "10");
+
   const filteredData = advertisements.filter((ad) => ad.place === type);
+  const start = (pageNumber - 1) * pageSize;
+  const end = start + pageSize;
 
-  const start = (page - 1) * PAGE_SIZE;
-  const end = start + PAGE_SIZE;
-
-  return new Promise((resolve) =>
+  return new Promise<Advertisement[]>((resolve) =>
     setTimeout(() => resolve(filteredData.slice(start, end)), 500)
-  ) as Promise<Advertisement[]>;
+  );
 };
