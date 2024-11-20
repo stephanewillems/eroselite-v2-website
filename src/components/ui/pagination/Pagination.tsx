@@ -1,4 +1,3 @@
-import { useSearchParams } from "next/navigation";
 import React from "react";
 
 import {
@@ -34,13 +33,14 @@ const getPaginationRange = (currentPage: number, totalPages: number) => {
 };
 
 interface PaginationProps {
+  currentPage: number;
   totalPages?: number;
 }
 
-export const Pagination = ({ totalPages = 10 }: PaginationProps) => {
-  const searchParams = useSearchParams();
-  const currentPage = Number(searchParams.get("page")) || 1;
-
+export const Pagination = ({
+  currentPage = 1,
+  totalPages = 10,
+}: PaginationProps) => {
   const paginationRange = getPaginationRange(currentPage, totalPages);
 
   return (
