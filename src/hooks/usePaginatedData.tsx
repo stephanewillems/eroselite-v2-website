@@ -1,12 +1,12 @@
 import useSWR, { Fetcher } from "swr";
 
-function usePaginatedData<T>(
+function usePaginatedData<T extends unknown[]>(
   path: string,
-  fetcher: Fetcher<T[]>,
+  fetcher: Fetcher<T>,
   { pageNumber = 1, pageSize = 10 }: { pageNumber: number; pageSize: number }
 ) {
   const key = `${path}&page=${pageNumber}&size=${pageSize}`;
-  const { data, error, isValidating } = useSWR<T[]>(key, () => fetcher(key), {
+  const { data, error, isValidating } = useSWR<T>(key, fetcher, {
     keepPreviousData: true,
     revalidateOnFocus: false,
   });
