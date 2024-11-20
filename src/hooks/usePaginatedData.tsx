@@ -1,6 +1,4 @@
-import useSWR from "swr";
-
-export type Fetcher<T> = (path: string) => Promise<T>;
+import useSWR, { Fetcher } from "swr";
 
 function usePaginatedData<T>(
   path: string,
