@@ -57,17 +57,21 @@ export const PaginatedContent = () => {
       {isLoading ? (
         <p>Loading...</p>
       ) : (
-        // TODO: lets find a way of making this more smart, generating the banners and cards dynamically based on the size we want.
-        <div className="flex flex-col gap-two">
-          <Banner items={firstBannerItems} />
-          <CardsGrid items={firstCardGridItems} />
-          <Banner items={secondBannerItems} />
-          <CardsGrid items={secondCardGridItems} />
-          <Banner items={thirdBannerItems} />
-        </div>
+        <>
+          {/* // TODO: lets find a way of making this more smart, generating the banners and cards dynamically based on the size we want. */}
+          <div className="flex flex-col gap-two">
+            <Banner items={firstBannerItems} />
+            <CardsGrid items={firstCardGridItems} />
+            <Banner items={secondBannerItems} />
+            <CardsGrid items={secondCardGridItems} />
+            <Banner items={thirdBannerItems} />
+          </div>
+          <Pagination
+            currentPage={currentPage}
+            totalPages={totalNumberOfPages}
+          />
+        </>
       )}
-
-      <Pagination currentPage={currentPage} totalPages={totalNumberOfPages} />
     </div>
   );
 };
