@@ -3,12 +3,17 @@
 import { useSearchParams } from "next/navigation";
 
 import { advertisementsFetcher } from "@/api/fetcher"; // Your fetcher implementation
-import { CardsGrid } from "@/components/application//advertisements/cardsGrid";
-import { Banner } from "@/components/application/banner";
 import { Pagination } from "@/components/ui/pagination";
 import usePaginatedData from "@/hooks/usePaginatedData";
 
 import { ContentGenerator } from "./ContentGenerator";
+import { LayoutType } from "./contentLayoutMap";
+
+interface PaginatedPageProps {
+  layoutType?: LayoutType;
+}
+
+export const PaginatedPage = ({ layoutType }: PaginatedPageProps) => {
   const searchParams = useSearchParams();
   const currentPage = Number(searchParams.get("page")) || 1;
 
@@ -44,6 +49,7 @@ import { ContentGenerator } from "./ContentGenerator";
           <ContentGenerator
             bannerItems={bannerItems}
             categoryItems={categoryItems}
+            layoutType={layoutType}
           />
           <Pagination
             currentPage={currentPage}
