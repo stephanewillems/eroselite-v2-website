@@ -2,7 +2,7 @@
 
 import { useSearchParams } from "next/navigation";
 
-import { advertisementsFetcher } from "@/api/fetcher"; // Your fetcher implementation
+import { advertisementsFetcher } from "@/api/fetcher";
 import { Pagination } from "@/components/ui/pagination";
 import usePaginatedData from "@/hooks/usePaginatedData";
 
@@ -17,6 +17,7 @@ export const PaginatedPage = ({ layoutType }: PaginatedPageProps) => {
   const searchParams = useSearchParams();
   const currentPage = Number(searchParams.get("page")) || 1;
 
+  const shouldFetchBannerItems = layoutType !== "grid";
   const {
     data: bannerItems,
     isLoading: bannerItemsAreLoading,
@@ -24,7 +25,7 @@ export const PaginatedPage = ({ layoutType }: PaginatedPageProps) => {
   } = usePaginatedData(
     "/api/advertisements?type=homepage",
     advertisementsFetcher,
-    { pageNumber: currentPage, pageSize: 10 }
+    { pageNumber: currentPage, pageSize: 10, enabled: shouldFetchBannerItems }
   );
 
   const {
