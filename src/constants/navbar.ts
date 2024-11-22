@@ -1,7 +1,7 @@
 import { CrownIcon } from "lucide-react";
 
 export const navigationLinks = [
-  { label: "Now Available", href: "/available", icon: CrownIcon },
+  { label: "Now Available", href: "/now-available", icon: CrownIcon },
   { label: "Private", href: "/private" },
   { label: "Escorte", href: "/escorte" },
   { label: "Massages", href: "/massages" },

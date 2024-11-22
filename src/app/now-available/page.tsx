@@ -2,12 +2,12 @@ import React from "react";
 
 import { PaginatedPage } from "@/components/templates/PaginatedPage";
 
-const IntimacyPage = () => {
+const NowAvailablePage = () => {
   return (
     <div>
-      <PaginatedPage />
+      <PaginatedPage layoutType="grid" />
     </div>
   );
 };
 
-export default IntimacyPage;
+export default NowAvailablePage;
