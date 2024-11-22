@@ -1,11 +1,11 @@
 import React from "react";
 
-import { PaginatedContent } from "@/components/templates/PaginatedPageContent";
+import { PaginatedPage } from "@/components/templates/PaginatedPage";
 
 const PrivatePage = () => {
   return (
     <div>
-      <PaginatedContent />
+      <PaginatedPage />
     </div>
   );
 };

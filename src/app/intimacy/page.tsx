@@ -1,11 +1,11 @@
 import React from "react";
 
-import { PaginatedContent } from "@/components/templates/PaginatedPageContent";
+import { PaginatedPage } from "@/components/templates/PaginatedPage";
 
 const IntimacyPage = () => {
   return (
     <div>
-      <PaginatedContent />
+      <PaginatedPage />
     </div>
   );
 };

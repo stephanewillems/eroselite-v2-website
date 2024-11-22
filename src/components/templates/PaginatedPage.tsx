@@ -8,7 +8,7 @@ import { Banner } from "@/components/application/banner";
 import { Pagination } from "@/components/ui/pagination";
 import usePaginatedData from "@/hooks/usePaginatedData";
 
-export const PaginatedContent = () => {
+export const PaginatedPage = () => {
   const searchParams = useSearchParams();
   const currentPage = Number(searchParams.get("page")) || 1;
 
