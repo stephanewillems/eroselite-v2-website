@@ -4,13 +4,13 @@ enum PaginatedPageComponentType {
   CardGrid = "cardGrid",
 }
 
-export enum ContentType {
+export enum LayoutType {
   DefaultLayout = "default",
   CardGridLayout = "cardGridLayout",
 }
 
 export const contentLayoutMap: Record<
-  ContentType,
+  LayoutType,
   { type: PaginatedPageComponentType; itemsPerPage: number }[]
 > = {
   default: [
