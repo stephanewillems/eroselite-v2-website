@@ -1,13 +1,10 @@
 // Our paginated content only shows these two components for now
-enum PaginatedPageComponentType {
+export enum PaginatedPageComponentType {
   Banner = "banner",
   CardGrid = "cardGrid",
 }
 
-export enum LayoutType {
-  DefaultLayout = "default",
-  CardGridLayout = "cardGridLayout",
-}
+export type LayoutType = "default" | "grid";
 
 export const contentLayoutMap: Record<
   LayoutType,
@@ -21,7 +18,7 @@ export const contentLayoutMap: Record<
     { type: PaginatedPageComponentType.CardGrid, itemsPerPage: 8 },
     { type: PaginatedPageComponentType.Banner, itemsPerPage: 12 },
   ],
-  cardGridLayout: [
+  grid: [
     // Only cards page, i,e "Now available page"
     { type: PaginatedPageComponentType.CardGrid, itemsPerPage: 28 },
   ],
