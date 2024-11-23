@@ -25,7 +25,7 @@ export const Popover = ({
   return (
     <PopoverRoot onOpenChange={setIsOpen} open={isOpen}>
       <PopoverTrigger asChild>{trigger}</PopoverTrigger>
-      <PopoverContent className={cn("p-half", className)} {...rest}>
+      <PopoverContent align="start" className={cn("p-half", className)} {...rest}>
         <div className="flex flex-col">
           <div className="flex justify-end">
             <ChevronsLeft
