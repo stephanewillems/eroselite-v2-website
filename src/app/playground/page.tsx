@@ -1,8 +1,10 @@
-import { PiIcon, MapIcon, Map } from "lucide-react";
+import { PiIcon, MapIcon, Map, FilterIcon } from "lucide-react";
 
 import { Accordion } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
+import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
+import { Popover } from "@/components/ui/popover/Popover";
 import { Select } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 import { TooltipWrap } from "@/components/ui/tooltip";
@@ -199,6 +201,24 @@ const Playground = () => {
         />
       </div>
       ----------------------------------------------------------------------------------------------------------------------------------------------------------
+      <h1>Popover</h1>
+      <div className="w-[500px] flex justify-center">
+        <Popover
+          className="rounded-r-lg"
+          trigger={
+            <Button className="min-w-[35px]" size="icon" variant="primary">
+              <FilterIcon height={35} width={35} />
+            </Button>
+          }
+        >
+          <div className="">This is a popover</div>
+        </Popover>
+      </div>
+      ----------------------------------------------------------------------------------------------------------------------------------------------------------
+      <h1>Checkbox</h1>
+      <div className="flex items-center space-x-2 py-4">
+        <Checkbox id="terms" label="Accept terms and conditions" />
+      </div>
     </div>
   );
 };
