@@ -23,9 +23,13 @@ export const Popover = ({
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <PopoverRoot onOpenChange={setIsOpen} open={isOpen}>
+    <PopoverRoot modal onOpenChange={setIsOpen} open={isOpen}>
       <PopoverTrigger asChild>{trigger}</PopoverTrigger>
-      <PopoverContent align="start" className={cn("p-half", className)} {...rest}>
+      <PopoverContent
+        align="start"
+        className={cn("p-half max-h-[60vh] overflow-scroll hide-scrollbar md:max-h-full", className)}
+        {...rest}
+      >
         <div className="flex flex-col">
           <div className="flex justify-end">
             <ChevronsLeft

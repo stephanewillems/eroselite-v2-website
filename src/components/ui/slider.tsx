@@ -24,7 +24,7 @@ const Slider = React.forwardRef<
       props.defaultValue.map((_, index) => (
         <SliderPrimitive.Thumb
           className={cn(
-            "border-eros-purple bg-foreground ring-offset-background focus-visible:ring-ring block h-5 w-5 rounded-full border-2 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
+            "border-eros-purple bg-foreground ring-offset-background focus-visible:ring-ring block h-5 w-5 rounded-full border-2 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 cursor-pointer",
 
             index === 0 ? "left-0" : "right-0"
           )}
