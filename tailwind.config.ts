@@ -55,7 +55,7 @@ const config: Config = {
         },
         outline: {
           DEFAULT: "var(--eros-white)",
-          foreground: "var(--eros-pink)",
+          foreground: "var(--eros-white)",
         },
         border: {
           DEFAULT: "var(--border)",
