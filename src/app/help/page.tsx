@@ -5,15 +5,15 @@ import { Accordion } from "@/components/ui/accordion";
 
 const HelpPage = () => {
   return (
-    <div className="container px-four">
+    <div className="container px-one py-two md:px-two lg:px-four">
       <h1 className="text-2xl">Help & Resources</h1>
 
-      <div className="flex gap-three my-three">
+      <div className="flex flex-col md:flex-row md:gap-three md:my-three">
         <div
-          className="basis-1/3 flex justify-center h-[100px]"
+          className="py-two basis-1/3 flex justify-center h-[100px] md:py-0"
           id="logo-wrapper"
         >
-          <div className="basis-1/3 flex justify-center">
+          <div className="flex justify-center">
             <Image
               alt="Help logo"
               height={55}
