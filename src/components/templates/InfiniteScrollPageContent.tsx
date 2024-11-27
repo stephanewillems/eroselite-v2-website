@@ -20,7 +20,8 @@ export const InfiniteScrollPageContent = () => {
     loadMore: loadMoreHomepageItems,
   } = useInfiniteScroll<Advertisement[]>(
     "/api/advertisements?type=homepage",
-    advertisementsFetcher
+    advertisementsFetcher,
+    { pageSize: 20, initialPageNumber: 1 }
   );
 
   const {
@@ -30,7 +31,8 @@ export const InfiniteScrollPageContent = () => {
     loadMore: loadMoreCategoryItems,
   } = useInfiniteScroll<Advertisement[]>(
     "/api/advertisements?type=category",
-    advertisementsFetcher
+    advertisementsFetcher,
+    { pageSize: 16, initialPageNumber: 1 }
   );
 
   const isLoadingMore = homepageItemsAreLoading || categoryItemsAreLoading;

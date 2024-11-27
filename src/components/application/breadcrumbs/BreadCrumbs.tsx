@@ -7,6 +7,7 @@ import React from "react";
 
 import { navigationLinks } from "@/constants/navbar";
 import { cn } from "@/utils/classnames";
+import { capitalizeFirstLetter } from "@/utils/common";
 
 const SeparatorElement = ({ fill = false }: { fill: boolean }) => (
   <ChevronsRightIcon
@@ -48,7 +49,7 @@ export const Breadcrumbs = () => {
                   href={href}
                 >
                   {Icon ? <Icon aria-hidden size={20} /> : null}
-                  {foundLink?.label}
+                  {foundLink?.label || capitalizeFirstLetter(pathNames.find(Boolean))}
                 </Link>
               </li>
               {!isLastPathname ? <SeparatorElement fill /> : null}

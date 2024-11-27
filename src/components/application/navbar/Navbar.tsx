@@ -3,6 +3,7 @@
 import { GlobeIcon, MenuIcon, XIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
 
 import { navigationLinks } from "@/constants/navbar";
@@ -10,6 +11,7 @@ import { cn } from "@/utils/classnames";
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname();
 
   return (
     <div className="lg:container bg-background">
@@ -46,7 +48,9 @@ export const Navbar = () => {
           {navigationLinks.map(({ label, href, icon: IconComponent }) => (
             <li className="min-w-fit" key={label}>
               <Link
-                className="text-base text-foreground hover:text-primary"
+                className={cn("text-base text-foreground hover:text-primary", {
+                  "text-primary": pathname === href,  
+                })}
                 href={href}
               >
                 {IconComponent ? (
