@@ -25,7 +25,7 @@ export const PaginatedPage = ({ layoutType }: PaginatedPageProps) => {
   } = usePaginatedData(
     "/api/advertisements?type=homepage",
     advertisementsFetcher,
-    { pageNumber: currentPage, pageSize: 10, enabled: shouldFetchBannerItems }
+    { pageNumber: currentPage, pageSize: 30, enabled: shouldFetchBannerItems }
   );
 
   const {
