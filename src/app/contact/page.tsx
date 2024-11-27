@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 
-const HelpPage = () => {
+const ContactPage = () => {
   return (
     <div className="container px-one py-two md:px-two lg:px-four">
       <h1 className="text-2xl">Contact Page</h1>
@@ -40,4 +40,4 @@ const HelpPage = () => {
   );
 };
 
-export default HelpPage;
+export default ContactPage;
