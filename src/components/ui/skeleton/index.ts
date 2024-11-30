@@ -1,2 +1,2 @@
-export * from './BannerSkeleton'
-export * from './CardsGridSkeleton'
+export { BannerSkeleton } from "./BannerSkeleton";
+export { CardsGridSkeleton } from "./CardsGridSkeleton";
