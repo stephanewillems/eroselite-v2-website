@@ -3,6 +3,7 @@
 import { useSearchParams } from "next/navigation";
 
 import { advertisementsFetcher } from "@/api/fetcher";
+import { LoadingSpinner } from "@/components/ui/loadingSpinner";
 import { Pagination } from "@/components/ui/pagination";
 import usePaginatedData from "@/hooks/usePaginatedData";
 
@@ -44,7 +45,9 @@ export const PaginatedPage = ({ layoutType }: PaginatedPageProps) => {
   return (
     <div className="py-two flex flex-col gap-four">
       {isLoading ? (
-        <p>Loading...</p>
+        <div className="flex min-h-screen justify-center">
+          <LoadingSpinner />
+        </div>
       ) : (
         <>
           <ContentGenerator
