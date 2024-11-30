@@ -1,11 +1,7 @@
 import { InfiniteScrollPageContent } from "@/components/templates/InfiniteScrollPageContent";
 
 const Home = () => {
-  return (
-    <div className="py-one">
-      <InfiniteScrollPageContent />
-    </div>
-  );
+  return <InfiniteScrollPageContent />;
 };
 
 export default Home;
