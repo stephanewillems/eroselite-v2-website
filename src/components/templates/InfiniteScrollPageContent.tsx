@@ -3,8 +3,8 @@
 import React, { useCallback, useEffect, useMemo } from "react";
 
 import { advertisementsFetcher } from "@/api/fetcher";
-import { CardsGrid } from "@/components/application/advertisements/cardsGrid";
 import { Banner } from "@/components/application/advertisements/banner";
+import { CardsGrid } from "@/components/application/advertisements/cardsGrid";
 import { LoadingSpinner } from "@/components/ui/loadingSpinner";
 import useInfiniteScroll from "@/hooks/useInfiniteScroll";
 import { Advertisement } from "@/types/api";
