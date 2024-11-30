@@ -3,11 +3,11 @@
 import { useSearchParams } from "next/navigation";
 
 import { advertisementsFetcher } from "@/api/fetcher";
-import { LoadingSpinner } from "@/components/ui/loadingSpinner";
 import { Pagination } from "@/components/ui/pagination";
 import usePaginatedData from "@/hooks/usePaginatedData";
 
 import { ContentGenerator } from "./ContentGenerator";
+import { LoadingSkeleton } from "./LoadingSkeleton";
 import { LayoutType } from "./contentLayoutMap";
 
 interface PaginatedPageProps {
@@ -43,11 +43,9 @@ export const PaginatedPage = ({ layoutType }: PaginatedPageProps) => {
   const totalNumberOfPages = Math.max(bannerTotalPages, categoryTotalPages);
 
   return (
-    <div className="py-two flex flex-col gap-four">
+    <div className="py-two flex flex-col gap-8 xl:gap-12">
       {isLoading ? (
-        <div className="flex min-h-screen justify-center">
-          <LoadingSpinner />
-        </div>
+        <LoadingSkeleton />
       ) : (
         <>
           <ContentGenerator
