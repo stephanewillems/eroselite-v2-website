@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 
 import { Breadcrumbs } from "@/components/application/breadcrumbs";
+import { AgeConfirmationOverlay } from "@/components/application/common/AgeConfirmation";
 import { QuickFilters } from "@/components/application/filters/QuickFilters";
 import { Footer } from "@/components/application/footer";
 import { Navbar } from "@/components/application/navbar";
@@ -59,6 +60,7 @@ export default function RootLayout({
       <body
         className={`${ceraPro.variable} font-cerapro flex flex-col min-h-screen antialiased`}
       >
+        <AgeConfirmationOverlay />
         <div className="flex flex-col sticky z-sticky top-0 shadow-custom">
           <Navbar />
           <QuickFilters />
