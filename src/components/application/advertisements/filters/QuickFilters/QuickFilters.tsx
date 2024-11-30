@@ -1,7 +1,7 @@
 import { Circle, Map, MessageCircleHeart, UserRoundPlus } from "lucide-react";
 import React from "react";
 
-import { LocationSelect, GenderSelect } from "@/components/application/filters";
+import { LocationSelect, GenderSelect } from "@/components/application/advertisements/filters";
 import { Input } from "@/components/ui/input";
 
 import { FilterPopover } from "../FilterPopover";

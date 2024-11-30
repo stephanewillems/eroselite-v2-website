@@ -1,5 +1,5 @@
+import { Banner } from "@/components/application/advertisements/banner";
 import { CardsGrid } from "@/components/application/advertisements/cardsGrid";
-import { Banner } from "@/components/application/banner";
 import { Advertisement } from "@/types/api";
 
 import {
