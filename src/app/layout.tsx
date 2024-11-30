@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 
-import { Breadcrumbs } from "@/components/application/breadcrumbs";
-import { AgeConfirmationOverlay } from "@/components/application/common/AgeConfirmation";
-import { QuickFilters } from "@/components/application/filters/QuickFilters";
-import { Footer } from "@/components/application/footer";
-import { Navbar } from "@/components/application/navbar";
+import { QuickFilters } from "@/components/application/advertisements/filters/QuickFilters";
+import { AgeConfirmationOverlay } from "@/components/application/common/age-confirmation";
+import { Breadcrumbs } from "@/components/application/common/breadcrumbs";
+import { Footer } from "@/components/application/common/footer";
+import { Navbar } from "@/components/application/common/navbar";
 
 import "./globals.css";
 
