@@ -5,9 +5,10 @@ import React, { useCallback, useEffect, useMemo } from "react";
 import { advertisementsFetcher } from "@/api/fetcher";
 import { Banner } from "@/components/application/advertisements/banner";
 import { CardsGrid } from "@/components/application/advertisements/cardsGrid";
-import { LoadingSpinner } from "@/components/ui/loadingSpinner";
 import useInfiniteScroll from "@/hooks/useInfiniteScroll";
 import { Advertisement } from "@/types/api";
+
+import { LoadingSkeleton } from "./LoadingSkeleton";
 
 const MAXIMUM_BANNERS_PER_CAROUSEL = 10;
 const MAXIMUM_ADDS_PER_GRID = 8;
@@ -111,13 +112,11 @@ export const InfiniteScrollPageContent = () => {
   }, [handleScroll]);
 
   return (
-    <div>
-      <div className="flex flex-col gap-8 xl:gap-12">{sections}</div>
-      {isLoadingMore ? (
-        <div className="flex py-one justify-center md:py-two">
-          <LoadingSpinner />
-        </div>
-      ) : null}
+    <div className="py-two">
+      <div className="flex flex-col gap-8 xl:gap-12">
+        {sections}
+        {isLoadingMore ? <LoadingSkeleton /> : null}
+      </div>
       {hasReachedEnd ? (
         <p className="py-one flex justify-center animate-pulse text-primary text-md md:py-two">
           You have reached the end!
