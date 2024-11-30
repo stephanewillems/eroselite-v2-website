@@ -43,7 +43,7 @@ export const PaginatedPage = ({ layoutType }: PaginatedPageProps) => {
   const totalNumberOfPages = Math.max(bannerTotalPages, categoryTotalPages);
 
   return (
-    <div className="py-two flex flex-col gap-four">
+    <div className="py-two flex flex-col gap-8 xl:gap-12">
       {isLoading ? (
         <LoadingSkeleton />
       ) : (

@@ -24,7 +24,7 @@ export const ContentGenerator = ({
   let categoryIndex = 0;
 
   return (
-    <div className="flex flex-col gap-two">
+    <div className="flex flex-col gap-8 xl:gap-12">
       {layout.map((slot, index) => {
         let items: Advertisement[] = [];
 
