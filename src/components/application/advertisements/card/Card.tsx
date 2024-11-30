@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 import { Advertisement } from "@/types/api";
@@ -11,7 +12,10 @@ interface CardProps {
 
 export const Card = ({ advertisement }: CardProps) => {
   return (
-    <div className="relative min-w-[250px] min-h-[250px] w-full h-full overflow-hidden aspect-square rounded-banner shadow-none transition-shadow duration-300 cursor-pointer hover:shadow-lg hover:shadow-primary">
+    <Link
+      className="relative min-w-[250px] min-h-[250px] w-full h-full overflow-hidden aspect-square rounded-banner shadow-none transition-shadow duration-300 cursor-pointer hover:shadow-lg hover:shadow-primary"
+      href={`/profile/${advertisement.id}`}
+    >
       <Image
         alt="Card background"
         className="object-cover"
@@ -28,6 +32,6 @@ export const Card = ({ advertisement }: CardProps) => {
           <span>{advertisement.place}</span>
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
