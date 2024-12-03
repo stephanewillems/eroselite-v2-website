@@ -1,4 +1,4 @@
-import { SelectProps } from "@radix-ui/react-select";
+import { SelectContentProps, SelectProps } from "@radix-ui/react-select";
 import * as React from "react";
 
 import { InputSize } from "@/types/input";
@@ -27,10 +27,13 @@ export interface GroupedOption {
 
 export interface SelectComponentProps extends SelectProps {
   options: Option[] | GroupedOption[];
+  triggerElement?: React.ReactNode;
   placeholder?: string;
   icon?: React.ComponentType<React.SVGAttributes<SVGElement>>;
   hideChevronIcon?: boolean;
   size?: InputSize;
+  side?: SelectContentProps["side"];
+  align?: SelectContentProps["align"];
 }
 
 const sizeClasses: Record<InputSize, string> = {
@@ -41,10 +44,13 @@ const sizeClasses: Record<InputSize, string> = {
 
 export const Select: React.FC<SelectComponentProps> = ({
   options,
+  triggerElement,
   placeholder = "Select...",
   icon: IconComponent,
   hideChevronIcon = false,
   size = "md",
+  side,
+  align,
   ...other
 }) => {
   const isGrouped = "items" in options[0];
@@ -52,27 +58,32 @@ export const Select: React.FC<SelectComponentProps> = ({
 
   return (
     <SelectComponent {...other}>
-      <SelectTrigger
-        className={cn(
-          "!w-full",
-          {
-            "[&>svg]:hidden": hideChevronIcon,
-          },
-          sizeClasses[size]
-        )}
-      >
-        {IconComponent ? (
-          <div className="flex items-center">
-            <span className="mr-2 max-h-fit">
-              <IconComponent height={iconWidth} width={iconHeight} />
-            </span>
+      {triggerElement ? (
+        triggerElement
+      ) : (
+        <SelectTrigger
+          className={cn(
+            "!w-full",
+            {
+              "[&>svg]:hidden": hideChevronIcon,
+            },
+            sizeClasses[size]
+          )}
+        >
+          {IconComponent ? (
+            <div className="flex items-center">
+              <span className="mr-2 max-h-fit">
+                <IconComponent height={iconWidth} width={iconHeight} />
+              </span>
+              <SelectValue placeholder={placeholder} />
+            </div>
+          ) : (
             <SelectValue placeholder={placeholder} />
-          </div>
-        ) : (
-          <SelectValue placeholder={placeholder} />
-        )}
-      </SelectTrigger>
-      <SelectContent>
+          )}
+        </SelectTrigger>
+      )}
+
+      <SelectContent align={align} side={side}>
         {isGrouped
           ? (options as GroupedOption[]).map((group, index) => (
               <SelectGroup key={index}>

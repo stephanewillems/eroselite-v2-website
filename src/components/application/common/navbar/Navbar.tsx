@@ -1,17 +1,20 @@
 "use client";
 
-import { GlobeIcon, MenuIcon, XIcon } from "lucide-react";
+import { MenuIcon, XIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useTranslations } from "next-intl";
 import { useState } from "react";
 
+import { LanguageSwitcher } from "@/components/application/common/language-switcher";
 import { navigationLinks } from "@/constants/navbar";
 import { cn } from "@/utils/classnames";
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
+  const translate = useTranslations();
 
   return (
     <div className="lg:container bg-background">
@@ -45,28 +48,33 @@ export const Navbar = () => {
             isOpen ? "block" : "hidden"
           } absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 lg:flex lg:mx-auto lg:flex lg:items-center lg:w-auto lg:space-x-8 max-lg:hidden`}
         >
-          {navigationLinks.map(({ label, href, icon: IconComponent }) => (
-            <li className="min-w-fit" key={label}>
-              <Link
-                className={cn("text-base text-foreground hover:text-primary", {
-                  "text-primary": pathname === href,  
-                })}
-                href={href}
-              >
-                {IconComponent ? (
-                  <div className="flex items-center justify-center gap-1 text-primary">
-                    {IconComponent ? <IconComponent /> : null}
-                    {label}
-                  </div>
-                ) : (
-                  label
-                )}
-              </Link>
-            </li>
-          ))}
+          {navigationLinks.map(
+            ({ translationKey, href, icon: IconComponent }) => (
+              <li className="min-w-fit" key={translationKey}>
+                <Link
+                  className={cn(
+                    "text-base text-foreground hover:text-primary",
+                    {
+                      "text-primary": pathname === href,
+                    }
+                  )}
+                  href={href}
+                >
+                  {IconComponent ? (
+                    <div className="flex items-center justify-center gap-1 text-primary">
+                      {IconComponent ? <IconComponent /> : null}
+                      {translate(translationKey)}
+                    </div>
+                  ) : (
+                    translate(translationKey)
+                  )}
+                </Link>
+              </li>
+            )
+          )}
         </ul>
         <div className="cursor-pointer hidden lg:flex lg:ml-auto text-foreground hover:text-primary">
-          <GlobeIcon />
+          <LanguageSwitcher />
         </div>
       </nav>
 
@@ -109,23 +117,25 @@ export const Navbar = () => {
               </button>
             </div>
             <ul>
-              {navigationLinks.map(({ label, href, icon: IconComponent }) => (
-                <li key={label}>
-                  <Link
-                    className="block text-base font-medium text-foreground py-2 px-4 rounded hover:text-primary"
-                    href={href}
-                  >
-                    {IconComponent ? (
-                      <div className="flex flex-row-reverse justify-end items-center gap-2 text-primary">
-                        {IconComponent ? <IconComponent /> : null}
-                        {label}
-                      </div>
-                    ) : (
-                      label
-                    )}
-                  </Link>
-                </li>
-              ))}
+              {navigationLinks.map(
+                ({ translationKey, href, icon: IconComponent }) => (
+                  <li key={translationKey}>
+                    <Link
+                      className="block text-base font-medium text-foreground py-2 px-4 rounded hover:text-primary"
+                      href={href}
+                    >
+                      {IconComponent ? (
+                        <div className="flex flex-row-reverse justify-end items-center gap-2 text-primary">
+                          {IconComponent ? <IconComponent /> : null}
+                          {translate(translationKey)}
+                        </div>
+                      ) : (
+                        translate(translationKey)
+                      )}
+                    </Link>
+                  </li>
+                )
+              )}
             </ul>
           </nav>
         </div>

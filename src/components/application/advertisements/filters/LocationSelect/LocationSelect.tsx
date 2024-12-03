@@ -46,7 +46,6 @@ export const LocationSelect = ({
         hideChevronIcon
         icon={Map}
         options={localOptions}
-        placeholder="Place"
         value={value}
       />
     </div>

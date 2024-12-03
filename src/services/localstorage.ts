@@ -1,5 +1,6 @@
 export enum LocalStorageKey {
   AgeConfirmation = "age-confirmation",
+  Locale = "locale",
 }
 
 export const LocalStorageService = {

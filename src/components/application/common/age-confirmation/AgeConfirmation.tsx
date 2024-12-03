@@ -3,12 +3,14 @@
 import clsx from "clsx";
 import Image from "next/image";
 import { redirect } from "next/navigation";
+import { useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
 
 import { Button } from "@/components/ui/button";
 import { LocalStorageKey, LocalStorageService } from "@/services/localstorage";
 
 export const AgeConfirmationOverlay = () => {
+  const translate = useTranslations();
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -33,7 +35,7 @@ export const AgeConfirmationOverlay = () => {
   };
 
   const handleNo = () => {
-    alert("You must be 18+ to access this content.");
+    alert(translate("youMustBeOlderThan18"));
     redirect("https://www.google.com");
   };
 
@@ -61,13 +63,15 @@ export const AgeConfirmationOverlay = () => {
           src="/EE_LOGO_BIG.webp"
           width={350}
         />
-        <p className="text-white text-md mb-two">Are you older than 18?</p>
+        <p className="text-white text-md mb-two">
+          {translate("areYouOlderThan")}
+        </p>
         <div className="flex flex-col gap-4 sm:flex-row">
           <Button onClick={handleYes} variant="success">
-            I am 18 years or older
+            {translate("IamOlderThan18")}
           </Button>
           <Button onClick={handleNo} variant="destructive">
-            I am younger than 18
+            {translate("IamYoungerThan18")}
           </Button>
         </div>
       </div>
