@@ -34,7 +34,6 @@ export const GenderSelect = ({
         hideChevronIcon
         icon={BookHeartIcon}
         options={localOptions}
-        placeholder="Gender"
         value={value}
       />
     </div>

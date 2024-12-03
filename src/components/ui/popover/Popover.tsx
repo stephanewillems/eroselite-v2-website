@@ -11,7 +11,7 @@ import { PopoverContent, PopoverRoot, PopoverTrigger } from "./components";
 interface CustomPopoverProps extends PopoverContentProps {
   trigger: React.ReactNode;
   children: React.ReactNode;
-  className: string;
+  className?: string;
 }
 
 export const Popover = ({
