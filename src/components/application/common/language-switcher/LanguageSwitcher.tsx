@@ -3,14 +3,21 @@
 import { SelectTrigger } from "@radix-ui/react-select";
 import { GlobeIcon } from "lucide-react";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
 
 import { Select } from "@/components/ui/select";
+import { LocalStorageKey, LocalStorageService } from "@/services/localstorage";
 
 export const LanguageSwitcher = () => {
   const router = useRouter();
+  const [language, setLanguage] = useState(
+    LocalStorageService.get(LocalStorageKey.Locale) || "en"
+  );
 
   const handleLanguageChange = async (locale: string) => {
     document.cookie = `locale=${locale};`;
+    LocalStorageService.set(LocalStorageKey.Locale, locale);
+    setLanguage(locale);
 
     router.refresh();
   };
@@ -18,7 +25,6 @@ export const LanguageSwitcher = () => {
   return (
     <Select
       align="center"
-      defaultValue="nl"
       onValueChange={handleLanguageChange}
       options={[
         { value: "nl", label: "Dutch" },
@@ -32,6 +38,7 @@ export const LanguageSwitcher = () => {
           </div>
         </SelectTrigger>
       }
+      value={language}
     />
   );
 };
