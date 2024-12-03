@@ -27,6 +27,7 @@ export interface GroupedOption {
 
 export interface SelectComponentProps extends SelectProps {
   options: Option[] | GroupedOption[];
+  triggerElement?: React.ReactNode;
   placeholder?: string;
   icon?: React.ComponentType<React.SVGAttributes<SVGElement>>;
   hideChevronIcon?: boolean;
@@ -41,6 +42,7 @@ const sizeClasses: Record<InputSize, string> = {
 
 export const Select: React.FC<SelectComponentProps> = ({
   options,
+  triggerElement,
   placeholder = "Select...",
   icon: IconComponent,
   hideChevronIcon = false,
@@ -52,27 +54,31 @@ export const Select: React.FC<SelectComponentProps> = ({
 
   return (
     <SelectComponent {...other}>
-      <SelectTrigger
-        className={cn(
-          "!w-full",
-          {
-            "[&>svg]:hidden": hideChevronIcon,
-          },
-          sizeClasses[size]
-        )}
-      >
-        {IconComponent ? (
-          <div className="flex items-center">
-            <span className="mr-2 max-h-fit">
-              <IconComponent height={iconWidth} width={iconHeight} />
-            </span>
+      {triggerElement ? (
+        triggerElement
+      ) : (
+        <SelectTrigger
+          className={cn(
+            "!w-full",
+            {
+              "[&>svg]:hidden": hideChevronIcon,
+            },
+            sizeClasses[size]
+          )}
+        >
+          {IconComponent ? (
+            <div className="flex items-center">
+              <span className="mr-2 max-h-fit">
+                <IconComponent height={iconWidth} width={iconHeight} />
+              </span>
+              <SelectValue placeholder={placeholder} />
+            </div>
+          ) : (
             <SelectValue placeholder={placeholder} />
-          </div>
-        ) : (
-          <SelectValue placeholder={placeholder} />
-        )}
-      </SelectTrigger>
-      <SelectContent>
+          )}
+        </SelectTrigger>
+      )}
+
         {isGrouped
           ? (options as GroupedOption[]).map((group, index) => (
               <SelectGroup key={index}>
