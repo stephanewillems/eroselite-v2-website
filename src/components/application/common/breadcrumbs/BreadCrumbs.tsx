@@ -3,6 +3,7 @@
 import { ChevronsRightIcon, LucideHouse } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useTranslations } from "next-intl";
 import React from "react";
 
 import { navigationLinks } from "@/constants/navbar";
@@ -19,6 +20,7 @@ const SeparatorElement = ({ fill = false }: { fill: boolean }) => (
 
 export const Breadcrumbs = () => {
   const path = usePathname();
+  const translate = useTranslations();
   const pathNames = path.split("/").filter((pathname) => pathname);
 
   return (
@@ -37,7 +39,7 @@ export const Breadcrumbs = () => {
             navLink.href.includes(link)
           );
           const Icon = foundLink?.icon;
-          const textIsHighlighted = foundLink?.label === "Now Available";
+          const textIsHighlighted = foundLink?.href === "now-available";
 
           return (
             <React.Fragment key={index}>
@@ -49,7 +51,8 @@ export const Breadcrumbs = () => {
                   href={href}
                 >
                   {Icon ? <Icon aria-hidden size={20} /> : null}
-                  {foundLink?.label || capitalizeFirstLetter(pathNames.find(Boolean))}
+                  {translate(foundLink?.translationKey) ||
+                    capitalizeFirstLetter(pathNames.find(Boolean))}
                 </Link>
               </li>
               {!isLastPathname ? <SeparatorElement fill /> : null}
