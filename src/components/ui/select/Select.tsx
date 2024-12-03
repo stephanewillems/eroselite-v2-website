@@ -1,4 +1,4 @@
-import { SelectProps } from "@radix-ui/react-select";
+import { SelectContentProps, SelectProps } from "@radix-ui/react-select";
 import * as React from "react";
 
 import { InputSize } from "@/types/input";
@@ -32,6 +32,8 @@ export interface SelectComponentProps extends SelectProps {
   icon?: React.ComponentType<React.SVGAttributes<SVGElement>>;
   hideChevronIcon?: boolean;
   size?: InputSize;
+  side?: SelectContentProps["side"];
+  align?: SelectContentProps["align"];
 }
 
 const sizeClasses: Record<InputSize, string> = {
@@ -47,6 +49,8 @@ export const Select: React.FC<SelectComponentProps> = ({
   icon: IconComponent,
   hideChevronIcon = false,
   size = "md",
+  side,
+  align,
   ...other
 }) => {
   const isGrouped = "items" in options[0];
@@ -79,6 +83,7 @@ export const Select: React.FC<SelectComponentProps> = ({
         </SelectTrigger>
       )}
 
+      <SelectContent align={align} side={side}>
         {isGrouped
           ? (options as GroupedOption[]).map((group, index) => (
               <SelectGroup key={index}>
