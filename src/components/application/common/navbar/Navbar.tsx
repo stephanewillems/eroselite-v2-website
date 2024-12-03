@@ -1,11 +1,12 @@
 "use client";
 
-import { GlobeIcon, MenuIcon, XIcon } from "lucide-react";
+import { MenuIcon, XIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 
+import { LanguageSwitcher } from "@/components/application/common/language-switcher";
 import { navigationLinks } from "@/constants/navbar";
 import { cn } from "@/utils/classnames";
 
@@ -49,7 +50,7 @@ export const Navbar = () => {
             <li className="min-w-fit" key={label}>
               <Link
                 className={cn("text-base text-foreground hover:text-primary", {
-                  "text-primary": pathname === href,  
+                  "text-primary": pathname === href,
                 })}
                 href={href}
               >
@@ -66,7 +67,7 @@ export const Navbar = () => {
           ))}
         </ul>
         <div className="cursor-pointer hidden lg:flex lg:ml-auto text-foreground hover:text-primary">
-          <GlobeIcon />
+          <LanguageSwitcher />
         </div>
       </nav>
 
